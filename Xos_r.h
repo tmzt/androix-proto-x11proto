@@ -1,4 +1,5 @@
 /* $Xorg: Xos_r.h,v 1.4 2001/02/09 02:03:22 xorgcvs Exp $ */
+/* $XdotOrg: $ */
 /*
 Copyright 1996, 1998  The Open Group
 
@@ -190,10 +191,12 @@ extern void XtProcessUnlock(
 #endif /* !defined WIN32 */
 
 /*
- * Solaris 2.5 has SVR4 thread-safe API, but defines the POSIX
- * thread-safe feature test macro.  Fix the feature test macro.
+ * Solaris defines the POSIX thread-safe feature test macro, but
+ * uses the older SVR4 thread-safe functions unless the POSIX ones
+ * are specifically requested.  Fix the feature test macro.
  */
-#if defined(sun) && defined(_POSIX_THREAD_SAFE_FUNCTIONS)
+#if defined(sun) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && \
+	(_POSIX_C_SOURCE - 0 < 199506L) && !defined(_POSIX_PTHREAD_SEMANTICS)
 # undef _POSIX_THREAD_SAFE_FUNCTIONS
 #endif
 
@@ -368,11 +371,11 @@ typedef struct {
 } _Xgetpwparams;
 typedef int _Xgetpwret;
 # define _XGetpwuid(u,p) \
-((getpwuid_r((u),&(p).pws,(p).pwbuf,sizeof((p).pwbuf),&(p).pwp) == -1) ? \
- NULL : (p).pwp)
+((getpwuid_r((u),&(p).pws,(p).pwbuf,sizeof((p).pwbuf),&(p).pwp) == 0) ? \
+ (p).pwp : NULL)
 # define _XGetpwnam(u,p) \
-((getpwnam_r((u),&(p).pws,(p).pwbuf,sizeof((p).pwbuf),&(p).pwp) == -1) ? \
- NULL : (p).pwp)
+((getpwnam_r((u),&(p).pws,(p).pwbuf,sizeof((p).pwbuf),&(p).pwp) == 0) ? \
+ (p).pwp : NULL)
 #endif /* X_INCLUDE_PWD_H */
 
 #if defined(X_INCLUDE_PWD_H) && !defined(_XOS_INCLUDED_PWD_H)
