@@ -25,7 +25,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
  *
  */
-/* $XFree86: xc/include/Xfuncs.h,v 3.10 2002/05/31 18:45:38 dawes Exp $ */
+/* $XFree86: xc/include/Xfuncs.h,v 3.11 2003/12/19 02:05:37 dawes Exp $ */
 
 #ifndef _XFUNCS_H_
 #define _XFUNCS_H_
