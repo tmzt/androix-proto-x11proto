@@ -53,7 +53,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
-/* $XFree86: xc/include/X.h,v 1.7 2003/07/18 15:53:24 tsi Exp $ */
+/* $XFree86: xc/include/X.h,v 1.6 2003/07/09 15:27:28 tsi Exp $ */
 
 #define X_PROTOCOL	11		/* current protocol version */
 #define X_PROTOCOL_REVISION 0		/* current minor version */

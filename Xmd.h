@@ -1,4 +1,4 @@
-/* $XFree86: xc/include/Xmd.h,v 3.19 2003/10/23 15:19:01 tsi Exp $ */
+/* $XFree86: xc/include/Xmd.h,v 3.18tsi Exp $ */
 /***********************************************************
 
 Copyright 1987, 1998  The Open Group
