@@ -46,7 +46,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
-/* $XFree86$ */
+/* $XFree86: xc/include/keysym.h,v 1.4 2001/12/14 19:53:26 dawes Exp $ */
 
 /* default keysyms */
 #define XK_MISCELLANY
