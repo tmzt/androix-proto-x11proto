@@ -257,7 +257,7 @@ typedef struct {
  */
 
 #if defined(__NetBSD__) || defined(__FreeBSD__) || defined(__OpenBSD__) || \
-    defined(__APPLE__)
+    defined(__APPLE__) || defined(__DragonFly__)
 static __inline__ void _Xpw_copyPasswd(_Xgetpwparams p)
 {
    memcpy(&(p).pws, (p).pwp, sizeof(struct passwd));
@@ -427,7 +427,7 @@ typedef int _Xgetservbynameparams; /* dummy */
 /* UnixWare 2.0, or other systems with thread support but no _r API. */
 /* WARNING:  The h_addr_list and s_aliases values are *not* copied! */
 
-#if defined(__NetBSD__) || defined(__FreeBSD__)
+#if defined(__NetBSD__) || defined(__FreeBSD__) || defined(__DragonFly__)
 #include <sys/param.h>
 #endif
 
