@@ -94,6 +94,7 @@ typedef mutex_t xmutex_rec;
 #else /* !SVR4 */
 #ifdef WIN32
 #define BOOL wBOOL
+#define INT32 wINT32
 #ifdef Status
 #undef Status
 #define Status wStatus
@@ -103,6 +104,7 @@ typedef mutex_t xmutex_rec;
 #undef Status
 #define Status int
 #endif
+#undef INT32
 #undef BOOL
 typedef DWORD xthread_t;
 typedef DWORD xthread_key_t;

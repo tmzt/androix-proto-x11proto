@@ -1,5 +1,5 @@
 /*
- * $XdotOrg: xc/include/Xos.h,v 1.1.4.4 2004/02/16 20:55:02 alanc Exp $
+ * $XdotOrg: xc/include/Xos.h,v 1.2 2004/04/23 18:43:05 eich Exp $
  * $Xorg: Xos.h,v 1.6 2001/02/09 02:03:22 xorgcvs Exp $
  * 
  * 
@@ -211,11 +211,12 @@ struct timezone {
 #define _POSIX_SOURCE
 #elif defined(WIN32)
 #include <time.h>
-#if !defined(_WINSOCKAPI_) && !defined(_WILLWINSOCK_)
+#if !defined(_WINSOCKAPI_) && !defined(_WILLWINSOCK_) && !defined(_TIMEVAL_DEFINED) && !defined(_STRUCT_TIMEVAL)
 struct timeval {
     long    tv_sec;         /* seconds */
     long    tv_usec;        /* and microseconds */
 };
+#define _TIMEVAL_DEFINED
 #endif
 #include <sys/timeb.h>
 #define gettimeofday(t) \
