@@ -1,5 +1,5 @@
 /*
- * $XdotOrg: xc/include/Xos.h,v 1.2 2004/04/23 18:43:05 eich Exp $
+ * $XdotOrg: xc/include/Xos.h,v 1.3 2004/11/15 15:06:53 ago Exp $
  * $Xorg: Xos.h,v 1.6 2001/02/09 02:03:22 xorgcvs Exp $
  * 
  * 
@@ -277,7 +277,7 @@ typedef unsigned long fd_mask;
 #endif
 
 #if defined(ISC) || defined(__UNIXOS2__) || \
-    (defined(linux) && !defined(__GLIBC__)) || \
+    (defined(__linux__) && !defined(__GLIBC__)) || \
     (defined(__QNX__) && !defined(UNIXCONN))
 /*
  *	Some OS's may not have this
