@@ -68,6 +68,11 @@ The Open Group.
 
 #define sleep(x) Sleep(1000*x)
 
+#if defined(WIN32) && PATH_MAX < 1024
+#undef PATH_MAX
+#define PATH_MAX 1024
+#endif
+
 #ifdef _XFree86Server
 #define XFree86Server
 #undef _XFree86Server
