@@ -65,6 +65,7 @@ SOFTWARE.
     defined(__s390x__) || \
     (defined(__hppa__) && defined(__LP64__)) || \
     defined(__amd64__) || defined(amd64) || \
+    defined(__powerpc64__) || \
     (defined(sgi) && (_MIPS_SZLONG == 64))
 #define LONG64				/* 32/64-bit architecture */
 #endif
