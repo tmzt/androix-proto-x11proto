@@ -46,6 +46,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
+/* $XFree86: xc/include/keysym.h,v 1.4 2001/12/14 19:53:26 dawes Exp $ */
 
 /* default keysyms */
 #define XK_MISCELLANY
@@ -54,8 +55,20 @@ SOFTWARE.
 #define XK_LATIN2
 #define XK_LATIN3
 #define XK_LATIN4
+#define XK_LATIN8
 #define XK_LATIN9
+#define XK_CAUCASUS
 #define XK_GREEK
+#define XK_KATAKANA
+#define XK_ARABIC
+#define XK_CYRILLIC
+#define XK_HEBREW
+#define XK_THAI
+#define XK_KOREAN
+#define XK_ARMENIAN
+#define XK_GEORGIAN
+#define XK_VIETNAMESE
 #define XK_CURRENCY
 
 #include <X11/keysymdef.h>
+

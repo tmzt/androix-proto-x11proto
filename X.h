@@ -53,6 +53,8 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
+/* $XFree86: xc/include/X.h,v 1.5 2001/12/14 19:53:25 dawes Exp $ */
+
 #define X_PROTOCOL	11		/* current protocol version */
 #define X_PROTOCOL_REVISION 0		/* current minor version */
 
@@ -64,23 +66,44 @@ SOFTWARE.
  * client or library code.
  */
 #ifndef _XSERVER64
+#  ifndef _XTYPEDEF_XID
+#    define _XTYPEDEF_XID
 typedef unsigned long XID;
+#  endif
+#  ifndef _XTYPEDEF_MASK
+#    define _XTYPEDEF_MASK
 typedef unsigned long Mask;
-typedef unsigned long Atom;
+#  endif
+#  ifndef _XTYPEDEF_ATOM
+#    define _XTYPEDEF_ATOM
+typedef unsigned long Atom;		/* Also in Xdefs.h */
+#  endif
 typedef unsigned long VisualID;
 typedef unsigned long Time;
 #else
-#include <X11/Xmd.h>
+#  include <X11/Xmd.h>
+#  ifndef _XTYPEDEF_XID
+#    define _XTYPEDEF_XID
 typedef CARD32 XID;
+#  endif
+#  ifndef _XTYPEDEF_MASK
+#    define _XTYPEDEF_MASK
 typedef CARD32 Mask;
+#  endif
+#  ifndef _XTYPEDEF_ATOM
+#    define _XTYPEDEF_ATOM
 typedef CARD32 Atom;
+#  endif
 typedef CARD32 VisualID;
 typedef CARD32 Time;
 #endif
 
 typedef XID Window;
 typedef XID Drawable;
+#ifndef _XTYPEDEF_FONT
+#  define _XTYPEDEF_FONT
 typedef XID Font;
+#endif
 typedef XID Pixmap;
 typedef XID Cursor;
 typedef XID Colormap;
@@ -93,7 +116,9 @@ typedef unsigned char KeyCode;
  * RESERVED RESOURCE AND CONSTANT DEFINITIONS
  *****************************************************************/
 
+#ifndef None
 #define None                 0L	/* universal null resource or null atom */
+#endif
 
 #define ParentRelative       1L	/* background pixmap in CreateWindow
 				    and ChangeWindowAttributes */

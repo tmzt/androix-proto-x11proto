@@ -25,6 +25,7 @@ Except as contained in this notice, the name of The Open Group shall not be
 used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
  */
+/* $XFree86: xc/include/Xosdefs.h,v 3.20 2002/05/31 18:45:39 dawes Exp $ */
 
 #ifndef _XOSDEFS_H_
 #define _XOSDEFS_H_
@@ -80,7 +81,7 @@ in this Software without prior written authorization from The Open Group.
 
 #ifdef i386
 #ifdef SYSV
-#if !defined(Lynx) && !defined(ISC) && !defined(SCO) && !defined(_SEQUENT_)
+#if !defined(ISC) && !defined(SCO) && !defined(_SEQUENT_)
 #if !defined(_POSIX_SOURCE) && !defined(_SCO_DS)
 #define X_NOT_POSIX
 #endif
@@ -96,6 +97,12 @@ in this Software without prior written authorization from The Open Group.
 #endif
 
 #ifdef sun
+/* Imake configs define SVR4 on Solaris, but cc & gcc only define __SVR4
+ * This check allows non-Imake configured programs to build correctly.
+ */
+#if defined(__SVR4) && !defined(SVR4)
+#define SVR4
+#endif
 #ifdef SVR4
 /* define this to whatever it needs to be */
 #define X_POSIX_C_SOURCE 199300L
@@ -113,4 +120,22 @@ in this Software without prior written authorization from The Open Group.
 #define X_NOT_STDC_ENV
 #endif
 
+#ifdef __UNIXOS2__
+#define USGISH
+#define NULL_NOT_ZERO
+#endif
+
+#ifdef __DARWIN__
+#define NULL_NOT_ZERO
+#endif
+
+#ifdef __GNU__
+#ifndef PATH_MAX
+#define PATH_MAX 4096
+#endif
+#ifndef MAXPATHLEN
+#define MAXPATHLEN 4096
+#endif
+#endif
 #endif /* _XOSDEFS_H_ */
+

@@ -25,6 +25,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
  * *
  */
+/* $XFree86: xc/include/Xthreads.h,v 3.10 2001/12/14 19:53:26 dawes Exp $ */
 
 #ifndef _XTHREADS_H_
 #define _XTHREADS_H_
@@ -81,7 +82,6 @@ typedef mutex_t xmutex_rec;
 #endif
 #define xthread_set_specific(k,v) thr_setspecific(k,v)
 #define xthread_get_specific(k,vp) thr_getspecific(k,vp)
-#define XMUTEX_INITIALIZER {0}
 #define xmutex_init(m) mutex_init(m,USYNC_THREAD,0)
 #define xmutex_clear(m) mutex_destroy(m)
 #define xmutex_lock(m) mutex_lock(m)
@@ -230,13 +230,18 @@ typedef pthread_mutex_t xmutex_rec;
 #define xcondition_wait(c,m) pthread_cond_wait(c,m)
 #define xcondition_signal(c) pthread_cond_signal(c)
 #define xcondition_broadcast(c) pthread_cond_broadcast(c)
-#ifdef _DECTHREADS_
+#if defined(_DECTHREADS_)
 static xthread_t _X_no_thread_id;
 #define xthread_have_id(id) !pthread_equal(id, _X_no_thread_id)
 #define xthread_clear_id(id) id = _X_no_thread_id
 #define xthread_equal(id1,id2) pthread_equal(id1, id2)
 #endif /* _DECTHREADS_ */
-#if _CMA_VENDOR_ == _CMA__IBM
+#if defined(linux)
+#define xthread_have_id(id) !pthread_equal(id, 0)
+#define xthread_clear_id(id) id = 0
+#define xthread_equal(id1,id2) pthread_equal(id1, id2)
+#endif /* linux */
+#if defined(_CMA_VENDOR_) && defined(_CMA__IBM) && (_CMA_VENDOR_ == _CMA__IBM)
 #ifdef DEBUG			/* too much of a hack to enable normally */
 /* see also cma__obj_set_name() */
 #define xmutex_set_name(m,str) ((char**)(m)->field1)[5] = (str)

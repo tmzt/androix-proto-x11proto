@@ -25,6 +25,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
  *
  */
+/* $XFree86: xc/include/Xfuncs.h,v 3.10 2002/05/31 18:45:38 dawes Exp $ */
 
 #ifndef _XFUNCS_H_
 #define _XFUNCS_H_
@@ -32,34 +33,25 @@ in this Software without prior written authorization from The Open Group.
 #include <X11/Xosdefs.h>
 
 /* the old Xfuncs.h, for pre-R6 */
+#if !(defined(XFree86LOADER) && defined(IN_MODULE))
 
 #ifdef X_USEBFUNCS
 void bcopy();
 void bzero();
 int bcmp();
 #else
-#if (__STDC__ && !defined(X_NOT_STDC_ENV) && !defined(sun) && !defined(macII) && !defined(apollo)) || defined(SVR4) || defined(hpux) || defined(_IBMR2) || defined(_SEQUENT_)
+#if defined(SYSV)
+#include <memory.h>
+void bcopy();
+#define bzero(b,len) memset(b, 0, len)
+#define bcmp(b1,b2,len) memcmp(b1, b2, len)
+#else
 #include <string.h>
 #define _XFUNCS_H_INCLUDED_STRING_H
 #define bcopy(b1,b2,len) memmove(b2, b1, (size_t)(len))
 #define bzero(b,len) memset(b, 0, (size_t)(len))
 #define bcmp(b1,b2,len) memcmp(b1, b2, (size_t)(len))
-#else
-#ifdef sgi
-#include <bstring.h>
-#else
-#ifdef SYSV
-#include <memory.h>
-void bcopy();
-#define bzero(b,len) memset(b, 0, len)
-#define bcmp(b1,b2,len) memcmp(b1, b2, len)
-#else /* bsd */
-void bcopy();
-void bzero();
-int bcmp();
-#endif /* SYSV */
-#endif /* sgi */
-#endif /* __STDC__ and relatives */
+#endif
 #endif /* X_USEBFUNCS */
 
 /* the new Xfuncs.h */
@@ -86,5 +78,11 @@ int bcmp();
 #define memcmp(b1,b2,len) bcmp((char *)(b1),(char *)(b2),(int)(len))
 #endif /* SYSV else */
 #endif /* ! X_NOT_STDC_ENV else */
+
+#if defined(X_NOT_STDC_ENV) || (defined(sun) && !defined(SVR4))
+#define atexit(f) on_exit(f, 0)
+#endif
+
+#endif /* !(defined(XFree86LOADER) && defined(IN_MODULE)) */
 
 #endif /* _XFUNCS_H_ */

@@ -27,6 +27,7 @@ in this Software without prior written authorization from The Open Group.
  * The X Window System is a Trademark of The Open Group.
  *
  */
+/* $XFree86: xc/include/Xos.h,v 3.38 2002/05/31 18:45:39 dawes Exp $ */
 
 /* This is a collection of things to try and minimize system dependencies
  * in a "signficant" number of source files.
@@ -50,7 +51,7 @@ in this Software without prior written authorization from The Open Group.
 #define __TYPES__
 #endif /* __TYPES__ */
 #else /* USG */
-#if defined(_POSIX_SOURCE) && (defined(MOTOROLA) || defined(AMOEBA))
+#if defined(_POSIX_SOURCE) && defined(MOTOROLA)
 #undef _POSIX_SOURCE
 #include <sys/types.h>
 #define _POSIX_SOURCE
@@ -60,7 +61,7 @@ in this Software without prior written authorization from The Open Group.
 #endif /* USG */
 
 #ifdef _SEQUENT_
-/* 
+/*
  * in_systm.h compatibility between SysV and BSD types u_char u_short u_long
  * select.h  for typedef of args to select, fd_set, may use SVR4 later
  */
@@ -84,16 +85,28 @@ in this Software without prior written authorization from The Open Group.
 #ifndef X_NOT_STDC_ENV
 
 #include <string.h>
+#ifdef __STDC__
+#ifndef index
+#define index(s,c) (strchr((s),(c)))
+#endif
+#ifndef rindex
+#define rindex(s,c) (strrchr((s),(c)))
+#endif
+#else
 #ifndef index
 #define index strchr
 #endif
 #ifndef rindex
 #define rindex strrchr
 #endif
+#endif
 
 #else
 
 #ifdef SYSV
+#if defined(clipper) || defined(__clipper__)
+#include <malloc.h>
+#endif
 #include <string.h>
 #define index strchr
 #define rindex strrchr
@@ -108,7 +121,7 @@ in this Software without prior written authorization from The Open Group.
 /*
  * strerror()
  */
-#if defined(X_NOT_STDC_ENV) || (defined(sun) && !defined(SVR4)) || defined(macII)
+#if (defined(X_NOT_STDC_ENV) || (defined(sun) && !defined(SVR4)) || defined(macII)) && !defined(__GLIBC__)
 #ifndef strerror
 extern char *sys_errlist[];
 extern int sys_nerr;
@@ -120,7 +133,7 @@ extern int sys_nerr;
 /*
  * Get open(2) constants
  */
-#ifdef X_NOT_POSIX
+#if defined(X_NOT_POSIX)
 #include <fcntl.h>
 #if defined(USL) || defined(CRAY) || defined(MOTOROLA) || (defined(i386) && (defined(SYSV) || defined(SVR4))) || defined(__sxg__)
 #include <unistd.h>
@@ -143,10 +156,10 @@ extern int sys_nerr;
 #endif /* X_NOT_POSIX else */
 
 /*
- * Get struct timeval
+ * Get struct timeval and struct tm
  */
 
-#if defined(SYSV) && !defined(_SEQUENT_) 
+#if defined(SYSV) && !defined(_SEQUENT_)
 
 #ifndef USL
 #include <sys/time.h>
@@ -155,7 +168,7 @@ extern int sys_nerr;
 #ifdef CRAY
 #undef word
 #endif /* CRAY */
-#if defined(USG) && !defined(CRAY) && !defined(MOTOROLA) && !defined(uniosu) && !defined(__sxg__)
+#if defined(USG) && !defined(CRAY) && !defined(MOTOROLA) && !defined(uniosu) && !defined(__sxg__) && !defined(clipper) && !defined(__clipper__)
 struct timeval {
     long tv_sec;
     long tv_usec;
@@ -182,8 +195,7 @@ struct timezone {
 #undef _POSIX_SOURCE
 #include <sys/time.h>
 #define _POSIX_SOURCE
-#else /* defined(_POSIX_SOURCE) && defined(SVR4) */
-#ifdef WIN32
+#elif defined(WIN32)
 #include <time.h>
 #if !defined(_WINSOCKAPI_) && !defined(_WILLWINSOCK_)
 struct timeval {
@@ -199,12 +211,18 @@ struct timeval {
     (t)->tv_sec = _gtodtmp.time; \
     (t)->tv_usec = _gtodtmp.millitm * 1000; \
 }
-#else /* WIN32 */
-#ifdef _SEQUENT_
+#elif defined(_SEQUENT_) || defined(Lynx)
 #include <time.h>
-#endif /* _SEQUENT_ */
+#elif defined (__QNX__)
+typedef unsigned long fd_mask;
+/* Make sure we get 256 bit select masks */
+#define FD_SETSIZE 256
+#include <sys/select.h>
 #include <sys/time.h>
-#endif /* WIN32 else */
+#include <time.h>
+#else
+#include <sys/time.h>
+#include <time.h>
 #endif /* defined(_POSIX_SOURCE) && defined(SVR4) */
 
 #endif /* SYSV */
@@ -220,13 +238,44 @@ struct timeval {
 #endif
 #endif /* XPG4 else */
 
+#ifdef __UNIXOS2__
+typedef unsigned long fd_mask;
+#include <limits.h>
+#define MAX_PATH _POSIX_PATH_MAX
+#endif
+
+#ifdef __GNU__
+#define PATH_MAX 4096
+#define MAXPATHLEN 4096
+#define OPEN_MAX 256 /* We define a reasonable limit.  */
+#endif
+
 /* use POSIX name for signal */
-#if defined(X_NOT_POSIX) && defined(SYSV) && !defined(SIGCHLD)
+#if defined(X_NOT_POSIX) && defined(SYSV) && !defined(SIGCHLD) && !defined(ISC)
 #define SIGCHLD SIGCLD
 #endif
 
 #ifdef ISC
 #include <sys/bsdtypes.h>
+#include <sys/limits.h>
+#define NGROUPS 16
 #endif
+
+#if defined(ISC) || \
+    (defined(linux) && !defined(__GLIBC__)) || \
+    (defined(__QNX__) && !defined(UNIXCONN))
+/*
+ *	Some OS's may not have this
+ */
+
+#define X_NO_SYS_UN 1
+
+struct sockaddr_un {
+	short	sun_family;
+	char	sun_path[108];
+};
+#endif
+
+#include <X11/Xarch.h>
 
 #endif /* _XOS_H_ */

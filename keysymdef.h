@@ -47,6 +47,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
+/* $XFree86: xc/include/keysymdef.h,v 1.12 2001/12/14 19:53:26 dawes Exp $ */
 
 #define XK_VoidSymbol		0xFFFFFF	/* void symbol */
 
@@ -327,6 +328,8 @@ SOFTWARE.
 #define	XK_dead_voiced_sound				0xFE5E
 #define	XK_dead_semivoiced_sound			0xFE5F
 #define	XK_dead_belowdot				0xFE60
+#define XK_dead_hook					0xFE61
+#define XK_dead_horn					0xFE62
 
 #define	XK_First_Virtual_Screen				0xFED0
 #define	XK_Prev_Virtual_Screen				0xFED1
@@ -579,6 +582,7 @@ SOFTWARE.
 #define XK_Odiaeresis          0x0d6
 #define XK_multiply            0x0d7
 #define XK_Ooblique            0x0d8
+#define XK_Oslash              XK_Ooblique
 #define XK_Ugrave              0x0d9
 #define XK_Uacute              0x0da
 #define XK_Ucircumflex         0x0db
@@ -612,6 +616,7 @@ SOFTWARE.
 #define XK_odiaeresis          0x0f6
 #define XK_division            0x0f7
 #define XK_oslash              0x0f8
+#define XK_ooblique            XK_oslash
 #define XK_ugrave              0x0f9
 #define XK_uacute              0x0fa
 #define XK_ucircumflex         0x0fb
@@ -762,6 +767,39 @@ SOFTWARE.
 #endif /* XK_LATIN4 */
 
 /*
+ * Latin-8
+ * Byte 3 = 18
+ */
+#ifdef XK_LATIN8
+#define XK_Babovedot           0x12a1
+#define XK_babovedot           0x12a2
+#define XK_Dabovedot           0x12a6
+#define XK_Wgrave              0x12a8
+#define XK_Wacute              0x12aa
+#define XK_dabovedot           0x12ab
+#define XK_Ygrave              0x12ac
+#define XK_Fabovedot           0x12b0
+#define XK_fabovedot           0x12b1
+#define XK_Mabovedot           0x12b4
+#define XK_mabovedot           0x12b5
+#define XK_Pabovedot           0x12b7
+#define XK_wgrave              0x12b8
+#define XK_pabovedot           0x12b9
+#define XK_wacute              0x12ba
+#define XK_Sabovedot           0x12bb
+#define XK_ygrave              0x12bc
+#define XK_Wdiaeresis          0x12bd
+#define XK_wdiaeresis          0x12be
+#define XK_sabovedot           0x12bf
+#define XK_Wcircumflex         0x12d0
+#define XK_Tabovedot           0x12d7
+#define XK_Ycircumflex         0x12de
+#define XK_wcircumflex         0x12f0
+#define XK_tabovedot           0x12f7
+#define XK_ycircumflex         0x12fe
+#endif /* XK_LATIN8 */
+
+/*
  * Latin-9 (a.k.a. Latin-0)
  * Byte 3 = 19
  */
@@ -856,7 +894,35 @@ SOFTWARE.
  */
 
 #ifdef XK_ARABIC
+#define XK_Farsi_0                                     0x590
+#define XK_Farsi_1                                     0x591
+#define XK_Farsi_2                                     0x592
+#define XK_Farsi_3                                     0x593
+#define XK_Farsi_4                                     0x594
+#define XK_Farsi_5                                     0x595
+#define XK_Farsi_6                                     0x596
+#define XK_Farsi_7                                     0x597
+#define XK_Farsi_8                                     0x598
+#define XK_Farsi_9                                     0x599
+#define XK_Arabic_percent                              0x5a5
+#define XK_Arabic_superscript_alef                     0x5a6
+#define XK_Arabic_tteh                                 0x5a7
+#define XK_Arabic_peh                                  0x5a8
+#define XK_Arabic_tcheh                                0x5a9
+#define XK_Arabic_ddal                                 0x5aa
+#define XK_Arabic_rreh                                 0x5ab
 #define XK_Arabic_comma                                0x5ac
+#define XK_Arabic_fullstop                             0x5ae
+#define XK_Arabic_0                                    0x5b0
+#define XK_Arabic_1                                    0x5b1
+#define XK_Arabic_2                                    0x5b2
+#define XK_Arabic_3                                    0x5b3
+#define XK_Arabic_4                                    0x5b4
+#define XK_Arabic_5                                    0x5b5
+#define XK_Arabic_6                                    0x5b6
+#define XK_Arabic_7                                    0x5b7
+#define XK_Arabic_8                                    0x5b8
+#define XK_Arabic_9                                    0x5b9
 #define XK_Arabic_semicolon                            0x5bb
 #define XK_Arabic_question_mark                        0x5bf
 #define XK_Arabic_hamza                                0x5c1
@@ -905,6 +971,19 @@ SOFTWARE.
 #define XK_Arabic_kasra                                0x5f0
 #define XK_Arabic_shadda                               0x5f1
 #define XK_Arabic_sukun                                0x5f2
+#define XK_Arabic_madda_above                          0x5f3
+#define XK_Arabic_hamza_above                          0x5f4
+#define XK_Arabic_hamza_below                          0x5f5
+#define XK_Arabic_jeh                                  0x5f6
+#define XK_Arabic_veh                                  0x5f7
+#define XK_Arabic_keheh                                0x5f8
+#define XK_Arabic_gaf                                  0x5f9
+#define XK_Arabic_noon_ghunna                          0x5fa
+#define XK_Arabic_heh_doachashmee                      0x5fb
+#define XK_Farsi_yeh                                   0x5fc
+#define XK_Arabic_farsi_yeh                     XK_Farsi_yeh
+#define XK_Arabic_yeh_baree                            0x5fd
+#define XK_Arabic_heh_goal                             0x5fe
 #define XK_Arabic_switch        0xFF7E  /* Alias for mode_switch */
 #endif /* XK_ARABIC */
 
@@ -913,6 +992,38 @@ SOFTWARE.
  * Byte 3 = 6
  */
 #ifdef XK_CYRILLIC
+#define XK_Cyrillic_GHE_bar	                           0x680
+#define XK_Cyrillic_ghe_bar	                           0x690
+#define XK_Cyrillic_ZHE_descender	                   0x681
+#define XK_Cyrillic_zhe_descender	                   0x691
+#define XK_Cyrillic_KA_descender	                   0x682
+#define XK_Cyrillic_ka_descender	                   0x692
+#define XK_Cyrillic_KA_vertstroke	                   0x683
+#define XK_Cyrillic_ka_vertstroke	                   0x693
+#define XK_Cyrillic_EN_descender	                   0x684
+#define XK_Cyrillic_en_descender	                   0x694
+#define XK_Cyrillic_U_straight	                       0x685
+#define XK_Cyrillic_u_straight	                       0x695
+#define XK_Cyrillic_U_straight_bar	                   0x686
+#define XK_Cyrillic_u_straight_bar	                   0x696
+#define XK_Cyrillic_HA_descender	                   0x687
+#define XK_Cyrillic_ha_descender	                   0x697
+#define XK_Cyrillic_CHE_descender	                   0x688
+#define XK_Cyrillic_che_descender	                   0x698
+#define XK_Cyrillic_CHE_vertstroke	                   0x689
+#define XK_Cyrillic_che_vertstroke	                   0x699
+#define XK_Cyrillic_SHHA	                           0x68a
+#define XK_Cyrillic_shha	                           0x69a
+
+#define XK_Cyrillic_SCHWA	                           0x68c
+#define XK_Cyrillic_schwa	                           0x69c
+#define XK_Cyrillic_I_macron		                   0x68d
+#define XK_Cyrillic_i_macron		                   0x69d
+#define XK_Cyrillic_O_bar	                           0x68e
+#define XK_Cyrillic_o_bar	                           0x69e
+#define XK_Cyrillic_U_macron		                   0x68f
+#define XK_Cyrillic_u_macron		                   0x69f
+
 #define XK_Serbian_dje                                 0x6a1
 #define XK_Macedonia_gje                               0x6a2
 #define XK_Cyrillic_io                                 0x6a3
@@ -931,6 +1042,7 @@ SOFTWARE.
 #define XK_Serbian_nje                                 0x6aa  /* deprecated */
 #define XK_Serbian_tshe                                0x6ab
 #define XK_Macedonia_kje                               0x6ac
+#define XK_Ukrainian_ghe_with_upturn                   0x6ad
 #define XK_Byelorussian_shortu                         0x6ae
 #define XK_Cyrillic_dzhe                               0x6af
 #define XK_Serbian_dze                                 0x6af  /* deprecated */
@@ -953,6 +1065,7 @@ SOFTWARE.
 #define XK_Serbian_NJE                                 0x6ba  /* deprecated */
 #define XK_Serbian_TSHE                                0x6bb
 #define XK_Macedonia_KJE                               0x6bc
+#define XK_Ukrainian_GHE_WITH_UPTURN                   0x6bd
 #define XK_Byelorussian_SHORTU                         0x6be
 #define XK_Cyrillic_DZHE                               0x6bf
 #define XK_Serbian_DZE                                 0x6bf  /* deprecated */
@@ -1032,7 +1145,8 @@ SOFTWARE.
 #define XK_Greek_EPSILONaccent                         0x7a2
 #define XK_Greek_ETAaccent                             0x7a3
 #define XK_Greek_IOTAaccent                            0x7a4
-#define XK_Greek_IOTAdiaeresis                         0x7a5
+#define XK_Greek_IOTAdieresis                          0x7a5
+#define XK_Greek_IOTAdiaeresis         XK_Greek_IOTAdieresis /* old typo */
 #define XK_Greek_OMICRONaccent                         0x7a7
 #define XK_Greek_UPSILONaccent                         0x7a8
 #define XK_Greek_UPSILONdieresis                       0x7a9
@@ -1581,6 +1695,309 @@ SOFTWARE.
 #define XK_Korean_Won					0xeff
 
 #endif /* XK_KOREAN */
+
+/*
+ *   Armenian
+ *   Byte 3 = 0x14
+ */
+
+#ifdef XK_ARMENIAN
+#define XK_Armenian_eternity				0x14a1
+#define XK_Armenian_ligature_ew				0x14a2
+#define XK_Armenian_full_stop				0x14a3
+#define XK_Armenian_verjaket				0x14a3
+#define XK_Armenian_parenright				0x14a4
+#define XK_Armenian_parenleft				0x14a5
+#define XK_Armenian_guillemotright			0x14a6
+#define XK_Armenian_guillemotleft			0x14a7
+#define XK_Armenian_em_dash				0x14a8
+#define XK_Armenian_dot					0x14a9
+#define XK_Armenian_mijaket				0x14a9
+#define XK_Armenian_separation_mark			0x14aa
+#define XK_Armenian_but					0x14aa
+#define XK_Armenian_comma				0x14ab
+#define XK_Armenian_en_dash				0x14ac
+#define XK_Armenian_hyphen				0x14ad
+#define XK_Armenian_yentamna				0x14ad
+#define XK_Armenian_ellipsis				0x14ae
+#define XK_Armenian_exclam				0x14af
+#define XK_Armenian_amanak				0x14af
+#define XK_Armenian_accent				0x14b0
+#define XK_Armenian_shesht				0x14b0
+#define XK_Armenian_question				0x14b1
+#define XK_Armenian_paruyk				0x14b1
+#define XK_Armenian_AYB					0x14b2
+#define XK_Armenian_ayb					0x14b3
+#define XK_Armenian_BEN					0x14b4
+#define XK_Armenian_ben					0x14b5
+#define XK_Armenian_GIM					0x14b6
+#define XK_Armenian_gim					0x14b7
+#define XK_Armenian_DA					0x14b8
+#define XK_Armenian_da					0x14b9
+#define XK_Armenian_YECH				0x14ba
+#define XK_Armenian_yech				0x14bb
+#define XK_Armenian_ZA					0x14bc
+#define XK_Armenian_za					0x14bd
+#define XK_Armenian_E					0x14be
+#define XK_Armenian_e					0x14bf
+#define XK_Armenian_AT					0x14c0
+#define XK_Armenian_at					0x14c1
+#define XK_Armenian_TO					0x14c2
+#define XK_Armenian_to					0x14c3
+#define XK_Armenian_ZHE					0x14c4
+#define XK_Armenian_zhe					0x14c5
+#define XK_Armenian_INI					0x14c6
+#define XK_Armenian_ini					0x14c7
+#define XK_Armenian_LYUN				0x14c8
+#define XK_Armenian_lyun				0x14c9
+#define XK_Armenian_KHE					0x14ca
+#define XK_Armenian_khe					0x14cb
+#define XK_Armenian_TSA					0x14cc
+#define XK_Armenian_tsa					0x14cd
+#define XK_Armenian_KEN					0x14ce
+#define XK_Armenian_ken					0x14cf
+#define XK_Armenian_HO					0x14d0
+#define XK_Armenian_ho					0x14d1
+#define XK_Armenian_DZA					0x14d2
+#define XK_Armenian_dza					0x14d3
+#define XK_Armenian_GHAT				0x14d4
+#define XK_Armenian_ghat				0x14d5
+#define XK_Armenian_TCHE				0x14d6
+#define XK_Armenian_tche				0x14d7
+#define XK_Armenian_MEN					0x14d8
+#define XK_Armenian_men					0x14d9
+#define XK_Armenian_HI					0x14da
+#define XK_Armenian_hi					0x14db
+#define XK_Armenian_NU					0x14dc
+#define XK_Armenian_nu					0x14dd
+#define XK_Armenian_SHA					0x14de
+#define XK_Armenian_sha					0x14df
+#define XK_Armenian_VO					0x14e0
+#define XK_Armenian_vo					0x14e1
+#define XK_Armenian_CHA					0x14e2
+#define XK_Armenian_cha					0x14e3
+#define XK_Armenian_PE					0x14e4
+#define XK_Armenian_pe					0x14e5
+#define XK_Armenian_JE					0x14e6
+#define XK_Armenian_je					0x14e7
+#define XK_Armenian_RA					0x14e8
+#define XK_Armenian_ra					0x14e9
+#define XK_Armenian_SE					0x14ea
+#define XK_Armenian_se					0x14eb
+#define XK_Armenian_VEV					0x14ec
+#define XK_Armenian_vev					0x14ed
+#define XK_Armenian_TYUN				0x14ee
+#define XK_Armenian_tyun				0x14ef
+#define XK_Armenian_RE					0x14f0
+#define XK_Armenian_re					0x14f1
+#define XK_Armenian_TSO					0x14f2
+#define XK_Armenian_tso					0x14f3
+#define XK_Armenian_VYUN				0x14f4
+#define XK_Armenian_vyun				0x14f5
+#define XK_Armenian_PYUR				0x14f6
+#define XK_Armenian_pyur				0x14f7
+#define XK_Armenian_KE					0x14f8
+#define XK_Armenian_ke					0x14f9
+#define XK_Armenian_O					0x14fa
+#define XK_Armenian_o					0x14fb
+#define XK_Armenian_FE					0x14fc
+#define XK_Armenian_fe					0x14fd
+#define XK_Armenian_apostrophe				0x14fe
+#define XK_Armenian_section_sign			0x14ff
+#endif /* XK_ARMENIAN */
+
+/*
+ *   Georgian
+ *   Byte 3 = 0x15
+ */
+
+#ifdef XK_GEORGIAN
+#define XK_Georgian_an					0x15d0
+#define XK_Georgian_ban					0x15d1
+#define XK_Georgian_gan					0x15d2
+#define XK_Georgian_don					0x15d3
+#define XK_Georgian_en					0x15d4
+#define XK_Georgian_vin					0x15d5
+#define XK_Georgian_zen					0x15d6
+#define XK_Georgian_tan					0x15d7
+#define XK_Georgian_in					0x15d8
+#define XK_Georgian_kan					0x15d9
+#define XK_Georgian_las					0x15da
+#define XK_Georgian_man					0x15db
+#define XK_Georgian_nar					0x15dc
+#define XK_Georgian_on					0x15dd
+#define XK_Georgian_par					0x15de
+#define XK_Georgian_zhar				0x15df
+#define XK_Georgian_rae					0x15e0
+#define XK_Georgian_san					0x15e1
+#define XK_Georgian_tar					0x15e2
+#define XK_Georgian_un					0x15e3
+#define XK_Georgian_phar				0x15e4
+#define XK_Georgian_khar				0x15e5
+#define XK_Georgian_ghan				0x15e6
+#define XK_Georgian_qar					0x15e7
+#define XK_Georgian_shin				0x15e8
+#define XK_Georgian_chin				0x15e9
+#define XK_Georgian_can					0x15ea
+#define XK_Georgian_jil					0x15eb
+#define XK_Georgian_cil					0x15ec
+#define XK_Georgian_char				0x15ed
+#define XK_Georgian_xan					0x15ee
+#define XK_Georgian_jhan				0x15ef
+#define XK_Georgian_hae					0x15f0
+#define XK_Georgian_he					0x15f1
+#define XK_Georgian_hie					0x15f2
+#define XK_Georgian_we					0x15f3
+#define XK_Georgian_har					0x15f4
+#define XK_Georgian_hoe					0x15f5
+#define XK_Georgian_fi					0x15f6
+#endif /* XK_GEORGIAN */
+
+/*
+ * Azeri (and other Turkic or Caucasian languages of ex-USSR)
+ * Byte 3 = 0x16
+ */
+
+#ifdef XK_CAUCASUS
+/* latin */
+#define XK_Ccedillaabovedot	0x16a2
+#define XK_Xabovedot		0x16a3
+#define XK_Qabovedot		0x16a5
+#define	XK_Ibreve		0x16a6
+#define XK_IE			0x16a7
+#define XK_UO			0x16a8
+#define XK_Zstroke		0x16a9
+#define	XK_Gcaron		0x16aa
+#define	XK_Obarred		0x16af
+#define XK_ccedillaabovedot	0x16b2
+#define XK_xabovedot		0x16b3
+#define	XK_Ocaron		0x16b4
+#define XK_qabovedot		0x16b5
+#define	XK_ibreve		0x16b6
+#define XK_ie			0x16b7
+#define XK_uo			0x16b8
+#define XK_zstroke		0x16b9
+#define	XK_gcaron		0x16ba
+#define	XK_ocaron		0x16bd
+#define	XK_obarred		0x16bf
+#define XK_SCHWA		0x16c6
+#define XK_schwa		0x16f6
+/* those are not really Caucasus, but I put them here for now */
+/* For Inupiak */
+#define XK_Lbelowdot		0x16d1
+#define XK_Lstrokebelowdot	0x16d2
+#define XK_lbelowdot		0x16e1
+#define XK_lstrokebelowdot	0x16e2
+/* For Guarani */
+#define XK_Gtilde		0x16d3
+#define XK_gtilde		0x16e3
+#endif /* XK_CAUCASUS */
+
+/*
+ *   Vietnamese
+ *   Byte 3 = 0x1e
+ */
+ 
+#ifdef XK_VIETNAMESE
+#define XK_Abelowdot					0x1ea0
+#define XK_abelowdot					0x1ea1
+#define XK_Ahook					0x1ea2
+#define XK_ahook					0x1ea3
+#define XK_Acircumflexacute				0x1ea4
+#define XK_acircumflexacute				0x1ea5
+#define XK_Acircumflexgrave				0x1ea6
+#define XK_acircumflexgrave				0x1ea7
+#define XK_Acircumflexhook				0x1ea8
+#define XK_acircumflexhook				0x1ea9
+#define XK_Acircumflextilde				0x1eaa
+#define XK_acircumflextilde				0x1eab
+#define XK_Acircumflexbelowdot				0x1eac
+#define XK_acircumflexbelowdot				0x1ead
+#define XK_Abreveacute					0x1eae
+#define XK_abreveacute					0x1eaf
+#define XK_Abrevegrave					0x1eb0
+#define XK_abrevegrave					0x1eb1
+#define XK_Abrevehook					0x1eb2
+#define XK_abrevehook					0x1eb3
+#define XK_Abrevetilde					0x1eb4
+#define XK_abrevetilde					0x1eb5
+#define XK_Abrevebelowdot				0x1eb6
+#define XK_abrevebelowdot				0x1eb7
+#define XK_Ebelowdot					0x1eb8
+#define XK_ebelowdot					0x1eb9
+#define XK_Ehook					0x1eba
+#define XK_ehook					0x1ebb
+#define XK_Etilde					0x1ebc
+#define XK_etilde					0x1ebd
+#define XK_Ecircumflexacute				0x1ebe
+#define XK_ecircumflexacute				0x1ebf
+#define XK_Ecircumflexgrave				0x1ec0
+#define XK_ecircumflexgrave				0x1ec1
+#define XK_Ecircumflexhook				0x1ec2
+#define XK_ecircumflexhook				0x1ec3
+#define XK_Ecircumflextilde				0x1ec4
+#define XK_ecircumflextilde				0x1ec5
+#define XK_Ecircumflexbelowdot				0x1ec6
+#define XK_ecircumflexbelowdot				0x1ec7
+#define XK_Ihook					0x1ec8
+#define XK_ihook					0x1ec9
+#define XK_Ibelowdot					0x1eca
+#define XK_ibelowdot					0x1ecb
+#define XK_Obelowdot					0x1ecc
+#define XK_obelowdot					0x1ecd
+#define XK_Ohook					0x1ece
+#define XK_ohook					0x1ecf
+#define XK_Ocircumflexacute				0x1ed0
+#define XK_ocircumflexacute				0x1ed1
+#define XK_Ocircumflexgrave				0x1ed2
+#define XK_ocircumflexgrave				0x1ed3
+#define XK_Ocircumflexhook				0x1ed4
+#define XK_ocircumflexhook				0x1ed5
+#define XK_Ocircumflextilde				0x1ed6
+#define XK_ocircumflextilde				0x1ed7
+#define XK_Ocircumflexbelowdot				0x1ed8
+#define XK_ocircumflexbelowdot				0x1ed9
+#define XK_Ohornacute					0x1eda
+#define XK_ohornacute					0x1edb
+#define XK_Ohorngrave					0x1edc
+#define XK_ohorngrave					0x1edd
+#define XK_Ohornhook					0x1ede
+#define XK_ohornhook					0x1edf
+#define XK_Ohorntilde					0x1ee0
+#define XK_ohorntilde					0x1ee1
+#define XK_Ohornbelowdot				0x1ee2
+#define XK_ohornbelowdot				0x1ee3
+#define XK_Ubelowdot					0x1ee4
+#define XK_ubelowdot					0x1ee5
+#define XK_Uhook					0x1ee6
+#define XK_uhook					0x1ee7
+#define XK_Uhornacute					0x1ee8
+#define XK_uhornacute					0x1ee9
+#define XK_Uhorngrave					0x1eea
+#define XK_uhorngrave					0x1eeb
+#define XK_Uhornhook					0x1eec
+#define XK_uhornhook					0x1eed
+#define XK_Uhorntilde					0x1eee
+#define XK_uhorntilde					0x1eef
+#define XK_Uhornbelowdot				0x1ef0
+#define XK_uhornbelowdot				0x1ef1
+#define XK_Ybelowdot					0x1ef4
+#define XK_ybelowdot					0x1ef5
+#define XK_Yhook					0x1ef6
+#define XK_yhook					0x1ef7
+#define XK_Ytilde					0x1ef8
+#define XK_ytilde					0x1ef9
+#define XK_Ohorn					0x1efa /* U+01a0 */
+#define XK_ohorn					0x1efb /* U+01a1 */
+#define XK_Uhorn					0x1efc /* U+01af */
+#define XK_uhorn					0x1efd /* U+01b0 */
+
+#define XK_combining_tilde				0x1e9f /* U+0303 */
+#define XK_combining_grave				0x1ef2 /* U+0300 */
+#define XK_combining_acute				0x1ef3 /* U+0301 */
+#define XK_combining_hook				0x1efe /* U+0309 */
+#define XK_combining_belowdot				0x1eff /* U+0323 */
+#endif /* XK_VIETNAMESE */
 
 #ifdef XK_CURRENCY
 #define XK_EcuSign					0x20a0
