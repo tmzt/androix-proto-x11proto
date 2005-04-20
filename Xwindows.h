@@ -68,7 +68,7 @@ The Open Group.
 
 #define sleep(x) Sleep(1000*x)
 
-#if defined(WIN32) && PATH_MAX < 1024
+#if defined(WIN32) && (!defined(PATH_MAX) || PATH_MAX < 1024)
 #undef PATH_MAX
 #define PATH_MAX 1024
 #endif
