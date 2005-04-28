@@ -1,7 +1,7 @@
 /*
  * O/S-dependent (mis)feature macro definitions
  *
- * $XdotOrg: Xosdefs.h,v 1.5 2001/02/09 02:03:23 xorgcvs Exp $
+ * $XdotOrg: xc/include/Xosdefs.h,v 1.2 2004/04/23 18:43:05 eich Exp $
  * $Xorg: Xosdefs.h,v 1.5 2001/02/09 02:03:23 xorgcvs Exp $
  *
 Copyright 1991, 1998  The Open Group
@@ -91,7 +91,7 @@ in this Software without prior written authorization from The Open Group.
 
 #ifdef i386
 #ifdef SYSV
-#if !defined(ISC) && !defined(SCO) && !defined(_SEQUENT_)
+#if !defined(ISC) && !defined(SCO) && !defined(_SEQUENT_) && !defined(sun)
 #if !defined(_POSIX_SOURCE) && !defined(_SCO_DS)
 #define X_NOT_POSIX
 #endif
