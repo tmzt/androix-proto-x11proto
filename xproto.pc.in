@@ -6,4 +6,4 @@ includedir=@includedir@
 Name: Xproto
 Description: Xproto headers
 Version: @PACKAGE_VERSION@
-Cflags: -I${includedir}
+Cflags: -I${includedir} -D_XOPEN_SOURCE=500
