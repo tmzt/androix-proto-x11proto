@@ -2,6 +2,7 @@ AC_PREREQ([2.57])
 AC_INIT([Xproto], [7.0], [xorg@lists.freedesktop.org])
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
 #
+
 PROTO_DEFINES=
 
 
