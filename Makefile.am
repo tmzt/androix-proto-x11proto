@@ -27,7 +27,7 @@ xproto_HEADERS = \
 	Xwindows.h \
 	Xwinsock.h \
 	\
-	os.h
+	os.h \
 	misc.h
 
 pkgconfigdir = $(libdir)/pkgconfig
