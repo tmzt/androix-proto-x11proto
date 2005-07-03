@@ -25,10 +25,7 @@ xproto_HEADERS = \
 	Xw32defs.h \
 	XWDFile.h \
 	Xwindows.h \
-	Xwinsock.h \
-	\
-	os.h \
-	misc.h
+	Xwinsock.h
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = xproto.pc
