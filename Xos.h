@@ -1,5 +1,5 @@
 /*
- * $XdotOrg: xc/include/Xos.h,v 1.3 2004/11/15 15:06:53 ago Exp $
+ * $XdotOrg: xc/include/Xos.h,v 1.4 2005/01/03 18:03:49 eich Exp $
  * $Xorg: Xos.h,v 1.6 2001/02/09 02:03:22 xorgcvs Exp $
  * 
  * 
@@ -57,7 +57,17 @@ in this Software without prior written authorization from The Open Group.
 #include <sys/types.h>
 #define _POSIX_SOURCE
 #else
-#include <sys/types.h>
+/*
+ * Make sure _XOPEN_SOURCE is defined before including sys/select.h
+ * so that we get fds_bits in fd_set instead of __fds_bits
+ */
+# ifndef _XOPEN_SOURCE
+#  define _XOPEN_SOURCE
+#  include <sys/types.h>
+#  undef _XOPEN_SOURCE
+# else
+#  include <sys/types.h>
+# endif
 #endif
 #endif /* USG */
 
