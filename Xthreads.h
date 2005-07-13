@@ -93,19 +93,7 @@ typedef mutex_t xmutex_rec;
 #define xcondition_broadcast(cv) cond_broadcast(cv)
 #else /* !SVR4 */
 #ifdef WIN32
-#define BOOL wBOOL
-#define INT32 wINT32
-#ifdef Status
-#undef Status
-#define Status wStatus
-#endif
-#include <windows.h>
-#ifdef Status
-#undef Status
-#define Status int
-#endif
-#undef INT32
-#undef BOOL
+#include <X11/Xwindows.h>
 typedef DWORD xthread_t;
 typedef DWORD xthread_key_t;
 struct _xthread_waiter {
