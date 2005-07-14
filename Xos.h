@@ -60,8 +60,9 @@ in this Software without prior written authorization from The Open Group.
 /*
  * Make sure _XOPEN_SOURCE is defined before including sys/select.h
  * so that we get fds_bits in fd_set instead of __fds_bits
+ * EXCEPT on SVR4, where it REMOVES required typedefs!
  */
-# ifndef _XOPEN_SOURCE
+# if !defined(_XOPEN_SOURCE) && !defined(SVR4)
 #  define _XOPEN_SOURCE
 #  include <sys/types.h>
 #  undef _XOPEN_SOURCE
