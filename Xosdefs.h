@@ -111,7 +111,7 @@ in this Software without prior written authorization from The Open Group.
  * This check allows non-Imake configured programs to build correctly.
  */
 #if defined(__SVR4) && !defined(SVR4)
-#define SVR4
+#define SVR4 1
 #endif
 #ifdef SVR4
 /* define this to whatever it needs to be */
