@@ -11,6 +11,7 @@ if test "x$fds_bits_found" = xfalse ; then
 			       USE_FDS_BITS="fds_bits"
 			   ],,
 			   [
+                               #include <sys/types.h>
 			       #include <sys/select.h>
 			   ])
 fi
@@ -22,6 +23,7 @@ if test "x$fds_bits_found" = xfalse ; then
 			    USE_FDS_BITS="__fds_bits"
 			],,
 			[
+                            #include <sys/types.h>
 			    #include <sys/select.h>
 			])
 fi
