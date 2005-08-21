@@ -147,5 +147,13 @@ in this Software without prior written authorization from The Open Group.
 #define MAXPATHLEN 4096
 #endif
 #endif
+
+#if defined(__OpenBSD__) || defined(__NetBSD__) || defined(__FreeBSD__) \
+	|| defined(__Darwin__) || defined(__DragonFly__)
+# ifndef CSRG_BASED
+#  define CSRG_BASED
+# endif
+#endif
+
 #endif /* _XOSDEFS_H_ */
 
