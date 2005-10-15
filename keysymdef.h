@@ -2037,9 +2037,8 @@ SOFTWARE.
 #endif /* XK_CURRENCY */
 
 #ifdef XK_MATHEMATICAL
-/* two and three are defined above. */
+/* one, two and three are defined above. */
 #define XK_zerosuperior               0x2070     /* U+2070 SUPERSCRIPT ZERO */
-#define XK_onesuperior                0x2071     /* U+2071 SUPERSCRIPT ONE */
 #define XK_foursuperior               0x2074     /* U+2074 SUPERSCRIPT FOUR */
 #define XK_fivesuperior               0x2075     /* U+2075 SUPERSCRIPT FIVE */
 #define XK_sixsuperior                0x2076     /* U+2076 SUPERSCRIPT SIX */
@@ -2064,15 +2063,11 @@ SOFTWARE.
 #define XK_squareroot                 0x221A     /* U+221A SQUARE ROOT */
 #define XK_cuberoot                   0x221B     /* U+221B CUBE ROOT */
 #define XK_fourthroot                 0x221C     /* U+221C FOURTH ROOT */
-#define XK_infinity                   0x221E     /* U+221E INFINITY */
-#define XK_integral                   0x222B     /* U+222B INTEGRAL */
 #define XK_dintegral                  0x222C     /* U+222C DOUBLE INTEGRAL */
 #define XK_tintegral                  0x222D     /* U+222D TRIPLE INTEGRAL */
-#define XK_therefore                  0x2234     /* U+2234 THEREFORE */
 #define XK_because                    0x2235     /* U+2235 BECAUSE */
 #define XK_approxeq                   0x2248     /* U+2245 ALMOST EQUAL TO */
 #define XK_notapproxeq                0x2247     /* U+2247 NOT ALMOST EQUAL TO */
-#define XK_identical                  0x2261     /* U+2261 IDENTICAL TO */
 #define XK_notidentical               0x2262     /* U+2262 NOT IDENTICAL TO */
 #define XK_stricteq                   0x2263     /* U+2263 STRICTLY EQUIVALENT TO */          
 #endif /* XK_MATHEMATICAL */
