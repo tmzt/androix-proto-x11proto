@@ -2038,36 +2038,36 @@ SOFTWARE.
 
 #ifdef XK_MATHEMATICAL
 /* one, two and three are defined above. */
-#define XK_zerosuperior               0x2070     /* U+2070 SUPERSCRIPT ZERO */
-#define XK_foursuperior               0x2074     /* U+2074 SUPERSCRIPT FOUR */
-#define XK_fivesuperior               0x2075     /* U+2075 SUPERSCRIPT FIVE */
-#define XK_sixsuperior                0x2076     /* U+2076 SUPERSCRIPT SIX */
-#define XK_sevensuperior              0x2077     /* U+2077 SUPERSCRIPT SEVEN */
-#define XK_eightsuperior              0x2078     /* U+2078 SUPERSCRIPT EIGHT */
-#define XK_ninesuperior               0x2079     /* U+2079 SUPERSCRIPT NINE */
-#define XK_zerosubscript              0x2080     /* U+2080 SUBSCRIPT ZERO */
-#define XK_onesubscript               0x2081     /* U+2081 SUBSCRIPT ONE */
-#define XK_twosubscript               0x2082     /* U+2082 SUBSCRIPT TWO */
-#define XK_threesubscript             0x2083     /* U+2083 SUBSCRIPT THREE */
-#define XK_foursubscript              0x2084     /* U+2084 SUBSCRIPT FOUR */
-#define XK_fivesubscript              0x2085     /* U+2085 SUBSCRIPT FIVE */
-#define XK_sixsubscript               0x2086     /* U+2086 SUBSCRIPT SIX */
-#define XK_sevensubscript             0x2087     /* U+2087 SUBSCRIPT SEVEN */
-#define XK_eightsubscript             0x2088     /* U+2088 SUBSCRIPT EIGHT */
-#define XK_ninesubscript              0x2089     /* U+2089 SUBSCRIPT NINE */
-#define XK_partdifferential           0x2202     /* U+2202 PARTIAL DIFFERENTIAL */
-#define XK_emptyset                   0x2205     /* U+2205 NULL SET */
-#define XK_elementof                  0x2208     /* U+2208 ELEMENT OF */
-#define XK_notelementof               0x2209     /* U+2209 NOT AN ELEMENT OF */
-#define XK_containsas                 0x220B     /* U+220B CONTAINS AS MEMBER */
-#define XK_squareroot                 0x221A     /* U+221A SQUARE ROOT */
-#define XK_cuberoot                   0x221B     /* U+221B CUBE ROOT */
-#define XK_fourthroot                 0x221C     /* U+221C FOURTH ROOT */
-#define XK_dintegral                  0x222C     /* U+222C DOUBLE INTEGRAL */
-#define XK_tintegral                  0x222D     /* U+222D TRIPLE INTEGRAL */
-#define XK_because                    0x2235     /* U+2235 BECAUSE */
-#define XK_approxeq                   0x2248     /* U+2245 ALMOST EQUAL TO */
-#define XK_notapproxeq                0x2247     /* U+2247 NOT ALMOST EQUAL TO */
-#define XK_notidentical               0x2262     /* U+2262 NOT IDENTICAL TO */
-#define XK_stricteq                   0x2263     /* U+2263 STRICTLY EQUIVALENT TO */          
+#define XK_zerosuperior               0x1002070  /* U+2070 SUPERSCRIPT ZERO */
+#define XK_foursuperior               0x1002074  /* U+2074 SUPERSCRIPT FOUR */
+#define XK_fivesuperior               0x1002075  /* U+2075 SUPERSCRIPT FIVE */
+#define XK_sixsuperior                0x1002076  /* U+2076 SUPERSCRIPT SIX */
+#define XK_sevensuperior              0x1002077  /* U+2077 SUPERSCRIPT SEVEN */
+#define XK_eightsuperior              0x1002078  /* U+2078 SUPERSCRIPT EIGHT */
+#define XK_ninesuperior               0x1002079  /* U+2079 SUPERSCRIPT NINE */
+#define XK_zerosubscript              0x1002080  /* U+2080 SUBSCRIPT ZERO */
+#define XK_onesubscript               0x1002081  /* U+2081 SUBSCRIPT ONE */
+#define XK_twosubscript               0x1002082  /* U+2082 SUBSCRIPT TWO */
+#define XK_threesubscript             0x1002083  /* U+2083 SUBSCRIPT THREE */
+#define XK_foursubscript              0x1002084  /* U+2084 SUBSCRIPT FOUR */
+#define XK_fivesubscript              0x1002085  /* U+2085 SUBSCRIPT FIVE */
+#define XK_sixsubscript               0x1002086  /* U+2086 SUBSCRIPT SIX */
+#define XK_sevensubscript             0x1002087  /* U+2087 SUBSCRIPT SEVEN */
+#define XK_eightsubscript             0x1002088  /* U+2088 SUBSCRIPT EIGHT */
+#define XK_ninesubscript              0x1002089  /* U+2089 SUBSCRIPT NINE */
+#define XK_partdifferential           0x1002202  /* U+2202 PARTIAL DIFFERENTIAL */
+#define XK_emptyset                   0x1002205  /* U+2205 NULL SET */
+#define XK_elementof                  0x1002208  /* U+2208 ELEMENT OF */
+#define XK_notelementof               0x1002209  /* U+2209 NOT AN ELEMENT OF */
+#define XK_containsas                 0x100220B  /* U+220B CONTAINS AS MEMBER */
+#define XK_squareroot                 0x100221A  /* U+221A SQUARE ROOT */
+#define XK_cuberoot                   0x100221B  /* U+221B CUBE ROOT */
+#define XK_fourthroot                 0x100221C  /* U+221C FOURTH ROOT */
+#define XK_dintegral                  0x100222C  /* U+222C DOUBLE INTEGRAL */
+#define XK_tintegral                  0x100222D  /* U+222D TRIPLE INTEGRAL */
+#define XK_because                    0x1002235  /* U+2235 BECAUSE */
+#define XK_approxeq                   0x1002248  /* U+2245 ALMOST EQUAL TO */
+#define XK_notapproxeq                0x1002247  /* U+2247 NOT ALMOST EQUAL TO */
+#define XK_notidentical               0x1002262  /* U+2262 NOT IDENTICAL TO */
+#define XK_stricteq                   0x1002263  /* U+2263 STRICTLY EQUIVALENT TO */          
 #endif /* XK_MATHEMATICAL */
