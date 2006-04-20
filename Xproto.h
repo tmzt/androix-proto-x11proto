@@ -1126,7 +1126,7 @@ typedef struct _xEvent {
 	} resizeRequest;
 	struct {
 /* The event field in the circulate record is really the parent when this
-   is used as a CirculateRequest insteaad of a CircluateNotify */
+   is used as a CirculateRequest instead of a CirculateNotify */
             CARD32 pad00 B32;
 	    Window event B32, window B32, parent B32;
 	    BYTE place;			/* Top or Bottom */

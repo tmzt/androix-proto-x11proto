@@ -1,3 +1,16 @@
+2006-04-19  Alan Coopersmith  <alan.coopersmith@sun.com>
+
+	* Xmd.h: 
+	On Solaris, #include <sys/isa_defs.h> to be sure _LP64 is defined
+	in 64-bit builds.
+
+	* Xmd.h:
+	* Xos.h: 
+	* Xos_r.h: 
+	* Xproto.h: 
+	* keysymdef.h:
+	Fix some comment typos.
+
 2005-12-14  Kevin E. Martin  <kem-at-freedesktop-dot-org>
 
 	* configure.ac:
