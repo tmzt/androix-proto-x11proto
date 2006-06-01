@@ -1,5 +1,8 @@
 2006-06-02  Daniel Stone  <daniel@freedesktop.org>
 
+	* configure.ac:
+	Bump to 7.0.6.
+	
 	* keysym.h:
 	* keysym.h:
 	Bug #6296: Add Braille keysyms.  (Samuel Thibault)
