@@ -1,11 +1,14 @@
 2006-06-02  Daniel Stone  <daniel@freedesktop.org>
 
 	* configure.ac:
-	Bump to 7.0.6.
+	Bump to 7.0.6, and then to 7.0.7.
 	
 	* keysym.h:
-	* keysym.h:
+	* keysymdef.h:
 	Bug #6296: Add Braille keysyms.  (Samuel Thibault)
+
+	* keysymdef.h:
+	Bug #6887: Add dead_stroke keysym.  (Troy Korjuslommi)
 
 2006-04-26  Adam Jackson  <ajax@freedesktop.org>
 

@@ -380,6 +380,7 @@ SOFTWARE.
 #define XK_dead_belowdot                 0xfe60
 #define XK_dead_hook                     0xfe61
 #define XK_dead_horn                     0xfe62
+#define XK_dead_stroke                   0xfe63
 
 #define XK_First_Virtual_Screen          0xfed0
 #define XK_Prev_Virtual_Screen           0xfed1
