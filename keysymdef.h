@@ -327,6 +327,9 @@ SOFTWARE.
 #define XK_ISO_Level3_Shift              0xfe03
 #define XK_ISO_Level3_Latch              0xfe04
 #define XK_ISO_Level3_Lock               0xfe05
+#define XK_ISO_Level5_Shift              0xfe11
+#define XK_ISO_Level5_Latch              0xfe12
+#define XK_ISO_Level5_Lock               0xfe13
 #define XK_ISO_Group_Shift               0xff7e  /* Alias for mode_switch */
 #define XK_ISO_Group_Latch               0xfe06
 #define XK_ISO_Group_Lock                0xfe07

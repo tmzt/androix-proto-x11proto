@@ -1,3 +1,8 @@
+2006-06-10  Daniel Stone  <daniel@freedesktop.org>
+
+	* keysymdef.h:
+	Add ISO_Level5_{Shift,Latch,Lock}.
+
 2006-06-02  Daniel Stone  <daniel@freedesktop.org>
 
 	* configure.ac:
