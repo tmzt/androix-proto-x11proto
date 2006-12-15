@@ -11,14 +11,12 @@ xproto_HEADERS = \
 	Xatom.h \
 	Xdefs.h \
 	XF86keysym.h \
-	Xfuncproto.h \
 	Xfuncs.h \
 	X.h \
 	Xmd.h \
 	Xosdefs.h \
 	Xos.h \
 	Xos_r.h \
-	Xpoll.h \
 	Xproto.h \
 	Xprotostr.h \
 	Xthreads.h \
@@ -26,6 +24,10 @@ xproto_HEADERS = \
 	XWDFile.h \
 	Xwindows.h \
 	Xwinsock.h
+
+nodist_xproto_HEADERS = \
+	Xfuncproto.h \
+	Xpoll.h
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = xproto.pc
