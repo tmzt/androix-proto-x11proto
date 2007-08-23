@@ -98,6 +98,14 @@ SOFTWARE.
  * xc/doc/specs/XProtocol/X11.keysyms.
  */
 
+/*
+ * Now that the Xorg code base is managed in Git repositories, the KeyBind.c
+ * and X11.keysyms files mentioned in the last comment block are located at:
+ *
+ * src/KeyBind.c in the repo git://anongit.freedesktop.org/xorg/lib/libX11
+ * specs/XProtocol/X11.keysyms in the repo git://anongit.freedesktop.org/xorg/doc/xorg-docs
+ */
+
 #define XK_VoidSymbol                  0xffffff  /* Void symbol */
 
 #ifdef XK_MISCELLANY
