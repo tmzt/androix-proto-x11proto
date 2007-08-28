@@ -127,7 +127,7 @@
 #define XF86XK_Close		0x1008FF56   /* Close window                */
 #define XF86XK_Copy		0x1008FF57   /* Copy selection              */
 #define XF86XK_Cut		0x1008FF58   /* Cut selection               */
-#define XF86XK_Display		0x1008FF59   /* ??                          */
+#define XF86XK_Display		0x1008FF59   /* Output switch key           */
 #define XF86XK_DOS		0x1008FF5A   /* Launch DOS (emulation)      */
 #define XF86XK_Documents	0x1008FF5B   /* Open documents window       */
 #define XF86XK_Excel		0x1008FF5C   /* Launch spread sheet         */
