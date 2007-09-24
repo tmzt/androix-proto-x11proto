@@ -32,6 +32,8 @@ AC_ARG_ENABLE(wide-prototypes,
 	[WIDEPROTO=$enableval], [WIDEPROTO=auto])
 
 
+AC_CHECK_HEADERS([sys/select.h sys/param.h sys/types.h sys/time.h])
+
 # Handle Xpoll.h.in
 fds_bits_found=false;
 
@@ -42,8 +44,18 @@ if test "x$fds_bits_found" = xfalse ; then
 			       USE_FDS_BITS="fds_bits"
 			   ],,
 			   [
+                               #ifdef HAVE_SYS_PARAM_H
+                               #include <sys/param.h>
+                               #endif
+                               #ifdef HAVE_SYS_TYPES_H
                                #include <sys/types.h>
+                               #endif
+                               #ifdef HAVE_SYS_TIME_H
+                               #include <sys/time.h>
+                               #endif
+                               #ifdef HAVE_SYS_SELECT_H
 			       #include <sys/select.h>
+                               #endif
 			   ])
 fi
 
@@ -54,8 +66,18 @@ if test "x$fds_bits_found" = xfalse ; then
 			    USE_FDS_BITS="__fds_bits"
 			],,
 			[
-                            #include <sys/types.h>
-			    #include <sys/select.h>
+                               #ifdef HAVE_SYS_PARAM_H
+                               #include <sys/param.h>
+                               #endif
+                               #ifdef HAVE_SYS_TYPES_H
+                               #include <sys/types.h>
+                               #endif
+                               #ifdef HAVE_SYS_TIME_H
+                               #include <sys/time.h>
+                               #endif
+                               #ifdef HAVE_SYS_SELECT_H
+			       #include <sys/select.h>
+                               #endif
 			])
 fi
 
