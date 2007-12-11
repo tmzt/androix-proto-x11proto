@@ -133,7 +133,7 @@ in this Software without prior written authorization from The Open Group.
 #define NULL_NOT_ZERO
 #endif
 
-#ifdef __DARWIN__
+#ifdef __APPLE__
 #define NULL_NOT_ZERO
 #endif
 
