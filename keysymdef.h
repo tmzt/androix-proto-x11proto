@@ -396,6 +396,12 @@ SOFTWARE.
 #define XK_dead_psili                    0xfe64  /* alias for dead_abovecomma */
 #define XK_dead_abovereversedcomma       0xfe65
 #define XK_dead_dasia                    0xfe66  /* alias for dead_abovereversedcomma */
+#define XK_dead_belowring                0xfe67
+#define XK_dead_belowmacron              0xfe68
+#define XK_dead_belowcircumflex          0xfe69
+#define XK_dead_belowtilde               0xfe6a
+#define XK_dead_belowbreve               0xfe6b
+#define XK_dead_belowdiaeresis           0xfe6c
 
 #define XK_First_Virtual_Screen          0xfed0
 #define XK_Prev_Virtual_Screen           0xfed1
