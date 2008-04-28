@@ -35,7 +35,11 @@ AC_ARG_ENABLE(wide-prototypes,
 AC_CHECK_HEADERS([sys/select.h sys/param.h sys/types.h sys/time.h])
 
 # Handle Xpoll.h.in
-fds_bits_found=false;
+# Avoid determining fds_bits on WIN32 hosts (not including cygwin)
+case $host_os in
+	mingw*)		fds_bits_found=true;;
+	*)		fds_bits_found=false;;
+esac
 
 if test "x$fds_bits_found" = xfalse ; then
    AC_CHECK_MEMBER(fd_set.fds_bits, 
