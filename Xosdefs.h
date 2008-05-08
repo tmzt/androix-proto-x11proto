@@ -156,7 +156,7 @@ in this Software without prior written authorization from The Open Group.
 #endif
 
 #if defined(__OpenBSD__) || defined(__NetBSD__) || defined(__FreeBSD__) \
-	|| defined(__Darwin__) || defined(__DragonFly__)
+	|| defined(__APPLE__) || defined(__DragonFly__)
 # ifndef CSRG_BASED
 #  define CSRG_BASED
 # endif
