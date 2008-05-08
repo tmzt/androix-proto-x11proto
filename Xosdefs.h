@@ -135,6 +135,7 @@ in this Software without prior written authorization from The Open Group.
 
 #ifdef __APPLE__
 #define NULL_NOT_ZERO
+#define _DARWIN_C_SOURCE
 #endif
 
 #ifdef __GNU__
