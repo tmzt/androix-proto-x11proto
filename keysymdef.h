@@ -404,7 +404,7 @@ SOFTWARE.
 #define XK_dead_abovecomma               0xfe64
 #define XK_dead_psili                    0xfe64  /* alias for dead_abovecomma */
 #define XK_dead_abovereversedcomma       0xfe65
-#define XK_dead_dasia                    0xfe66  /* alias for dead_abovereversedcomma */
+#define XK_dead_dasia                    0xfe65  /* alias for dead_abovereversedcomma */
 #define XK_dead_belowring                0xfe67
 #define XK_dead_belowmacron              0xfe68
 #define XK_dead_belowcircumflex          0xfe69
