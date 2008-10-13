@@ -414,6 +414,7 @@ SOFTWARE.
 #define XK_dead_belowbreve               0xfe6b
 #define XK_dead_belowdiaeresis           0xfe6c
 #define XK_dead_invertedbreve            0xfe6d
+#define XK_dead_belowcomma               0xfe6e
 
 /* dead vowels for universal syllable entry */
 #define XK_dead_a                        0xfe80
