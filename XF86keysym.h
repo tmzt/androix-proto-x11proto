@@ -183,6 +183,11 @@
 #define XF86XK_Pictures		0x1008FF91   /* Show pictures             */
 #define XF86XK_Music		0x1008FF92   /* Launch music application  */
 
+#define XF86XK_Battery		0x1008FF93   /* Display battery information */
+#define XF86XK_Bluetooth	0x1008FF94   /* Enable/disable Bluetooth    */
+#define XF86XK_WLAN		0x1008FF95   /* Enable/disable WLAN         */
+#define XF86XK_UWB		0x1008FF96   /* Enable/disable UWB	    */
+
 /* Keys for special action keys (hot keys) */
 /* Virtual terminals on some operating systems */
 #define XF86XK_Switch_VT_1	0x1008FE01
