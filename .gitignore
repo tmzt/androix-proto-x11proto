@@ -17,3 +17,6 @@ stamp-h1
 stamp-h2
 xproto.pc
 *~
+xproto-*.tar.*
+ChangeLog
+tags
