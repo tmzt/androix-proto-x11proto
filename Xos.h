@@ -135,7 +135,7 @@ in this Software without prior written authorization from The Open Group.
 /*
  * strerror()
  */
-#if (defined(X_NOT_STDC_ENV) || (defined(sun) && !defined(SVR4)) || defined(macII)) && !defined(__GLIBC__)
+#if (defined(X_NOT_STDC_ENV) || (defined(sun) && !defined(SVR4))) && !defined(__GLIBC__)
 #ifndef strerror
 extern char *sys_errlist[];
 extern int sys_nerr;
@@ -158,15 +158,8 @@ extern int sys_nerr;
 #include <sys/file.h>
 #endif
 #else /* X_NOT_POSIX */
-#if !defined(_POSIX_SOURCE) && defined(macII)
-#define _POSIX_SOURCE
 #include <fcntl.h>
 #include <unistd.h>
-#undef _POSIX_SOURCE
-#else
-#include <fcntl.h>
-#include <unistd.h>
-#endif
 #endif /* X_NOT_POSIX else */
 
 /*
