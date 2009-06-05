@@ -28,18 +28,29 @@ The Open Group.
 */
 
 /*
- * This header file has for sole purpose to allow to include windows.h
- * without getting any name conflicts with our code.
- * Conflicts come from the fact that including windows.h actually pulls
- * in the whole Windows API...
+ * This header file has the sole purpose of allowing the inclusion of
+ * windows.h without getting any name conflicts with X headers code, by
+ * renaming the conflicting definitions from windows.h
+ *
+ * Some (non-Microsoft) versions of the Windows API headers actually avoid
+ * making the conflicting definitions if XFree86Server is defined, so we
+ * need to remember if that was defined and undefine it during including
+ * windows.h (so the conflicting definitions get wrapped correctly), and
+ * then redefine it afterwards...
+ *
+ * There doesn't seem to be a good way to wrap the min/max macros from
+ * windows.h, so we simply avoid defining them completely, allowing any
+ * pre-existing definition to stand.
+ *
  */
 
 #undef _XFree86Server
-#ifdef XFree86Server 
+#ifdef XFree86Server
 #define _XFree86Server
 #undef XFree86Server
 #endif
 
+#define NOMINMAX
 #define BOOL wBOOL
 #define INT32 wINT32
 #undef Status
@@ -48,6 +59,7 @@ The Open Group.
 #define BYTE wBYTE
 #define FreeResource wFreeResource
 #include <windows.h>
+#undef NOMINMAX
 #undef Status
 #define Status int
 #undef BYTE
@@ -56,8 +68,6 @@ The Open Group.
 #undef ATOM
 #undef FreeResource
 #undef CreateWindowA
-#undef min
-#undef max
 
 #ifdef RESOURCE_H
 #undef RT_FONT
@@ -65,8 +75,6 @@ The Open Group.
 #define RT_FONT         ((RESTYPE)4)
 #define RT_CURSOR       ((RESTYPE)5)
 #endif
-
-#define sleep(x) Sleep((x) * 1000)
 
 #if defined(WIN32) && (!defined(PATH_MAX) || PATH_MAX < 1024)
 #undef PATH_MAX
