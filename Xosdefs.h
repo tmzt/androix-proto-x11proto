@@ -142,7 +142,9 @@ in this Software without prior written authorization from The Open Group.
  * loosen our belts a tad.
  */
 #if defined(_XOPEN_SOURCE) || defined(_POSIX_SOURCE) || defined(_POSIX_C_SOURCE)
+#ifndef _DARWIN_C_SOURCE
 #define _DARWIN_C_SOURCE
+#endif
 #endif
 
 #endif
