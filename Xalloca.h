@@ -110,11 +110,7 @@ from The Open Group.
 /* alloca might be a macro taking one arg (hi, Sun!), so give it one. */
 #        if !defined(__sgi) && !defined(__QNX__) && !defined(__cplusplus)
 #          define __Xnullarg		/* as nothing */
-#          ifndef X_NOT_STDC_ENV
-             extern void *alloca(__Xnullarg);
-#          else
-             extern char *alloca(__Xnullarg);
-#          endif
+           extern void *alloca(__Xnullarg);
 #        endif /* !__sgi && !__QNX && !__cplusplus */
 #        define ALLOCATE_LOCAL(size) alloca((int)(size))
 #      endif /* who does alloca */

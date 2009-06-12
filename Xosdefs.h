@@ -28,51 +28,14 @@ in this Software without prior written authorization from The Open Group.
 #define _XOSDEFS_H_
 
 /*
- * X_NOT_STDC_ENV means does not have ANSI C header files.  Lack of this
- * symbol does NOT mean that the system has stdarg.h.
- *
  * X_NOT_POSIX means does not have POSIX header files.  Lack of this
  * symbol does NOT mean that the POSIX environment is the default.
  * You may still have to define _POSIX_SOURCE to get it.
  */
 
-#ifdef NOSTDHDRS
-#define X_NOT_POSIX
-#define X_NOT_STDC_ENV
-#endif
-
 #ifdef sony
 #if !defined(SYSTYPE_SYSV) && !defined(_SYSTYPE_SYSV)
 #define X_NOT_POSIX
-#endif
-#endif
-
-#ifdef UTEK
-#define X_NOT_POSIX
-#define X_NOT_STDC_ENV
-#endif
-
-#ifdef vax
-#ifndef ultrix			/* assume vanilla BSD */
-#define X_NOT_POSIX
-#define X_NOT_STDC_ENV
-#endif
-#endif
-
-#ifdef luna
-#define X_NOT_POSIX
-#define X_NOT_STDC_ENV
-#endif
-
-#ifdef Mips
-#define X_NOT_POSIX
-#define X_NOT_STDC_ENV
-#endif
-  
-#ifdef USL
-#ifdef SYSV /* (release 3.2) */
-#define X_NOT_POSIX
-#define X_NOT_STDC_ENV
 #endif
 #endif
 
@@ -89,14 +52,7 @@ in this Software without prior written authorization from The Open Group.
 #if !defined(_POSIX_SOURCE)
 #define X_NOT_POSIX
 #endif
-#define X_NOT_STDC_ENV
 #endif
-#endif
-#endif
-
-#ifdef MOTOROLA
-#ifdef SYSV
-#define X_NOT_STDC_ENV
 #endif
 #endif
 
@@ -117,11 +73,6 @@ in this Software without prior written authorization from The Open Group.
 #ifndef _POSIX_
 #define X_NOT_POSIX
 #endif
-#endif
-
-#if defined(nec_ews_svr2) || defined(SX) || defined(PC_UX)
-#define X_NOT_POSIX
-#define X_NOT_STDC_ENV
 #endif
 
 #ifdef __UNIXOS2__

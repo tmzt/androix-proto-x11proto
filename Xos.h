@@ -85,8 +85,6 @@ in this Software without prior written authorization from The Open Group.
  * which can be really inconvenient. :-(
  */
 
-#ifndef X_NOT_STDC_ENV
-
 #include <string.h>
 #if defined(__SCO__) || defined(__UNIXWARE__)
 #include <strings.h>
@@ -126,12 +124,10 @@ in this Software without prior written authorization from The Open Group.
 #define strrchr rindex
 #endif
 
-#endif /* X_NOT_STDC_ENV */
-
 /*
  * strerror()
  */
-#if (defined(X_NOT_STDC_ENV) || (defined(sun) && !defined(SVR4))) && !defined(__GLIBC__)
+#if (defined(sun) && !defined(SVR4)) && !defined(__GLIBC__)
 #ifndef strerror
 extern char *sys_errlist[];
 extern int sys_nerr;
