@@ -88,15 +88,11 @@ SOFTWARE.
  * symbols are no more than 32 characters long (which causes problems for some
  * compilers and preprocessors).
  *
- * The extra indirection in the __STDC__ case is to get macro arguments to
- * expand correctly before the concatenation, rather than afterward.
+ * The extra indirection is to get macro arguments to expand correctly before
+ * the concatenation, rather than afterward.
  */
-#if  !defined(UNIXCPP) || defined(ANSICPP)
 #define _SIZEOF(x) sz_##x
 #define SIZEOF(x) _SIZEOF(x)
-#else
-#define SIZEOF(x) sz_/**/x
-#endif /* if ANSI C compiler else not */
 
 /*
  * Bitfield suffixes for the protocol structure elements, if you
