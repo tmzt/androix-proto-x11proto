@@ -41,36 +41,17 @@ in this Software without prior written authorization from The Open Group.
 
 #ifdef USG
 #ifndef __TYPES__
-#ifdef CRAY
-#define word word_t
-#endif /* CRAY */
 #include <sys/types.h>			/* forgot to protect it... */
 #define __TYPES__
 #endif /* __TYPES__ */
 #else /* USG */
-#if defined(_POSIX_SOURCE) && defined(MOTOROLA)
-#undef _POSIX_SOURCE
-#include <sys/types.h>
-#define _POSIX_SOURCE
-#else
 # include <sys/types.h>
-#endif
 #endif /* USG */
 
-#ifndef sgi
 #if defined(__SCO__) || defined(__UNIXWARE__)
 #include <stdint.h>
 #endif
-#endif
 
-#ifdef _SEQUENT_
-/*
- * in_systm.h compatibility between SysV and BSD types u_char u_short u_long
- * select.h  for typedef of args to select, fd_set, may use SVR4 later
- */
-#include <netinet/in_systm.h>
-#include <sys/select.h>
-#endif /* _SEQUENT_ */
 
 /*
  * Just about everyone needs the strings routines.  We provide both forms here,
@@ -112,9 +93,6 @@ in this Software without prior written authorization from The Open Group.
 #else
 
 #ifdef SYSV
-#if defined(clipper) || defined(__clipper__)
-#include <malloc.h>
-#endif
 #include <string.h>
 #define index strchr
 #define rindex strrchr
@@ -141,7 +119,7 @@ extern int sys_nerr;
  */
 #if defined(X_NOT_POSIX)
 #include <fcntl.h>
-#if defined(USL) || defined(CRAY) || defined(MOTOROLA) || (defined(__i386__) && (defined(SYSV) || defined(SVR4))) || defined(__sxg__)
+#if defined(USL) || defined(__i386__) && (defined(SYSV) || defined(SVR4)) 
 #include <unistd.h>
 #endif
 #ifdef WIN32
@@ -158,16 +136,13 @@ extern int sys_nerr;
  * Get struct timeval and struct tm
  */
 
-#if defined(SYSV) && !defined(_SEQUENT_)
+#if defined(SYSV) 
 
 #ifndef USL
 #include <sys/time.h>
 #endif
 #include <time.h>
-#ifdef CRAY
-#undef word
-#endif /* CRAY */
-#if defined(USG) && !defined(CRAY) && !defined(MOTOROLA) && !defined(uniosu) && !defined(__sxg__) && !defined(clipper) && !defined(__clipper__)
+#if defined(USG) 
 struct timeval {
     long tv_sec;
     long tv_usec;
@@ -180,12 +155,6 @@ struct timezone {
 #endif /* USL_SHARELIB */
 #endif /* USG */
 
-#ifdef _SEQUENT_
-struct timezone {
-    int tz_minuteswest;
-    int tz_dsttime;
-};
-#endif /* _SEQUENT_ */
 
 #else /* not SYSV */
 
@@ -211,15 +180,6 @@ struct timeval {
     (t)->tv_sec = _gtodtmp.time; \
     (t)->tv_usec = _gtodtmp.millitm * 1000; \
 }
-#elif defined(_SEQUENT_) || defined(Lynx)
-#include <time.h>
-#elif defined (__QNX__)
-typedef unsigned long fd_mask;
-/* Make sure we get 256 bit select masks */
-#define FD_SETSIZE 256
-#include <sys/select.h>
-#include <sys/time.h>
-#include <time.h>
 #else
 #include <sys/time.h>
 #include <time.h>
@@ -231,18 +191,13 @@ typedef unsigned long fd_mask;
 #if defined(_XOPEN_XPG4) || defined(_XOPEN_UNIX) /* _XOPEN_UNIX is XPG4.2 */
 #define X_GETTIMEOFDAY(t) gettimeofday(t, (struct timezone*)0)
 #else
-#if defined(SVR4) || defined(VMS) || defined(WIN32)
+#if defined(SVR4) || defined(WIN32)
 #define X_GETTIMEOFDAY(t) gettimeofday(t)
 #else
 #define X_GETTIMEOFDAY(t) gettimeofday(t, (struct timezone*)0)
 #endif
 #endif /* XPG4 else */
 
-#ifdef __UNIXOS2__
-typedef unsigned long fd_mask;
-#include <limits.h>
-#define MAX_PATH _POSIX_PATH_MAX
-#endif
 
 #ifdef __GNU__
 #define PATH_MAX 4096
@@ -251,29 +206,8 @@ typedef unsigned long fd_mask;
 #endif
 
 /* use POSIX name for signal */
-#if defined(X_NOT_POSIX) && defined(SYSV) && !defined(SIGCHLD) && !defined(ISC)
+#if defined(X_NOT_POSIX) && defined(SYSV) && !defined(SIGCHLD) 
 #define SIGCHLD SIGCLD
-#endif
-
-#ifdef ISC
-#include <sys/bsdtypes.h>
-#include <sys/limits.h>
-#define NGROUPS 16
-#endif
-
-#if defined(ISC) || defined(__UNIXOS2__) || \
-    (defined(__linux__) && !defined(__GLIBC__)) || \
-    (defined(__QNX__) && !defined(UNIXCONN))
-/*
- *	Some OS's may not have this
- */
-
-#define X_NO_SYS_UN 1
-
-struct sockaddr_un {
-	short	sun_family;
-	char	sun_path[108];
-};
 #endif
 
 #include <X11/Xarch.h>

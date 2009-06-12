@@ -33,11 +33,6 @@ in this Software without prior written authorization from The Open Group.
  * You may still have to define _POSIX_SOURCE to get it.
  */
 
-#ifdef sony
-#if !defined(SYSTYPE_SYSV) && !defined(_SYSTYPE_SYSV)
-#define X_NOT_POSIX
-#endif
-#endif
 
 #ifdef _SCO_DS
 #ifndef __SCO__
@@ -47,7 +42,7 @@ in this Software without prior written authorization from The Open Group.
 
 #ifdef __i386__
 #ifdef SYSV
-#if !defined(ISC) && !defined(__SCO__) && !defined(_SEQUENT_) && \
+#if !defined(__SCO__) && \
 	!defined(__UNIXWARE__) && !defined(sun)
 #if !defined(_POSIX_SOURCE)
 #define X_NOT_POSIX
@@ -75,10 +70,6 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #endif
 
-#ifdef __UNIXOS2__
-#define USGISH
-#define NULL_NOT_ZERO
-#endif
 
 #ifdef __APPLE__
 #define NULL_NOT_ZERO
