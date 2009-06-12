@@ -1,7 +1,4 @@
 /*
- * $XdotOrg: proto/X11/Xos.h,v 1.8 2005/11/08 06:33:25 jkj Exp $
- * $Xorg: Xos.h,v 1.6 2001/02/09 02:03:22 xorgcvs Exp $
- * 
  * 
 Copyright 1987, 1998  The Open Group
 
@@ -28,7 +25,6 @@ in this Software without prior written authorization from The Open Group.
  * The X Window System is a Trademark of The Open Group.
  *
  */
-/* $XFree86: xc/include/Xos.h,v 3.41tsi Exp $ */
 
 /* This is a collection of things to try and minimize system dependencies
  * in a "significant" number of source files.

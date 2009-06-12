@@ -1,7 +1,4 @@
 /*
- * $XdotOrg: xc/include/Xfuncs.h,v 1.2 2004/04/23 18:43:05 eich Exp $
- * $Xorg: Xfuncs.h,v 1.4 2001/02/09 02:03:22 xorgcvs Exp $
- * 
  * 
 Copyright 1990, 1998  The Open Group
 
@@ -26,7 +23,6 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
  *
  */
-/* $XFree86: xc/include/Xfuncs.h,v 3.10 2002/05/31 18:45:38 dawes Exp $ */
 
 #ifndef _XFUNCS_H_
 #define _XFUNCS_H_
