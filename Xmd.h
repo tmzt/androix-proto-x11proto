@@ -91,7 +91,7 @@ SOFTWARE.
  * The extra indirection in the __STDC__ case is to get macro arguments to
  * expand correctly before the concatenation, rather than afterward.
  */
-#if ((defined(__STDC__) || defined(__cplusplus) || defined(c_plusplus)) && !defined(UNIXCPP)) || defined(ANSICPP)
+#if  !defined(UNIXCPP) || defined(ANSICPP)
 #define _SIZEOF(x) sz_##x
 #define SIZEOF(x) _SIZEOF(x)
 #else
@@ -112,13 +112,8 @@ typedef unsigned long CARD64;
 typedef unsigned int INT32;
 typedef unsigned int INT16;
 #else
-#ifdef __STDC__
 typedef signed int INT32;
 typedef signed int INT16;
-#else
-typedef int INT32;
-typedef int INT16;
-#endif
 #endif
 #else
 #define B32
@@ -132,11 +127,7 @@ typedef long INT32;
 typedef short INT16;
 #endif
 
-#if defined(__STDC__) 
 typedef signed char    INT8;
-#else
-typedef char           INT8;
-#endif
 
 #ifdef LONG64
 typedef unsigned long CARD64;

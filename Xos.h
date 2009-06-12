@@ -73,20 +73,11 @@ in this Software without prior written authorization from The Open Group.
 #if (defined(sun) && defined(__SVR4))
 #include <strings.h>
 #endif
-#ifdef __STDC__
 #ifndef index
 #define index(s,c) (strchr((s),(c)))
 #endif
 #ifndef rindex
 #define rindex(s,c) (strrchr((s),(c)))
-#endif
-#else
-#ifndef index
-#define index strchr
-#endif
-#ifndef rindex
-#define rindex strrchr
-#endif
 #endif
 #endif
 
