@@ -35,8 +35,8 @@ The Open Group.
 
 #undef _XFree86Server
 #ifdef XFree86Server 
-#define _XFree86Server
-#undef XFree86Server
+# define _XFree86Server
+# undef XFree86Server
 #endif
 
 #define BOOL wBOOL
@@ -59,7 +59,7 @@ The Open Group.
 #undef RT_CURSOR
 
 #ifdef _XFree86Server
-#define XFree86Server
-#undef _XFree86Server
+# define XFree86Server
+# undef _XFree86Server
 #endif
 

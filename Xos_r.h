@@ -324,7 +324,7 @@ typedef struct {
   struct passwd pws;
   char pwbuf[X_LINE_MAX];
 } _Xgetpwparams;
-# if defined(_POSIX_REENTRANT_FUNCTIONS) || !defined(SVR4) 
+# if defined(_POSIX_REENTRANT_FUNCTIONS) || !defined(SVR4)
 #   define _XGetpwuid(u,p) \
 ((getpwuid_r((u),&(p).pws,(p).pwbuf,sizeof((p).pwbuf)) == -1) ? NULL : &(p).pws)
 #   define _XGetpwnam(u,p) \

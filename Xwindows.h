@@ -45,8 +45,8 @@ The Open Group.
 
 #undef _XFree86Server
 #ifdef XFree86Server
-#define _XFree86Server
-#undef XFree86Server
+# define _XFree86Server
+# undef XFree86Server
 #endif
 
 #define NOMINMAX
@@ -69,19 +69,19 @@ The Open Group.
 #undef CreateWindowA
 
 #ifdef RESOURCE_H
-#undef RT_FONT
-#undef RT_CURSOR
-#define RT_FONT         ((RESTYPE)4)
-#define RT_CURSOR       ((RESTYPE)5)
+# undef RT_FONT
+# undef RT_CURSOR
+# define RT_FONT         ((RESTYPE)4)
+# define RT_CURSOR       ((RESTYPE)5)
 #endif
 
 #if defined(WIN32) && (!defined(PATH_MAX) || PATH_MAX < 1024)
-#undef PATH_MAX
-#define PATH_MAX 1024
+# undef PATH_MAX
+# define PATH_MAX 1024
 #endif
 
 #ifdef _XFree86Server
-#define XFree86Server
-#undef _XFree86Server
+# define XFree86Server
+# undef _XFree86Server
 #endif
 

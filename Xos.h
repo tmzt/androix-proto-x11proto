@@ -1,5 +1,5 @@
 /*
- * 
+ *
 Copyright 1987, 1998  The Open Group
 
 Permission to use, copy, modify, distribute, and sell this software and its
@@ -31,26 +31,26 @@ in this Software without prior written authorization from The Open Group.
  */
 
 #ifndef _XOS_H_
-#define _XOS_H_
+# define _XOS_H_
 
-#include <X11/Xosdefs.h>
+# include <X11/Xosdefs.h>
 
 /*
  * Get major data types (esp. caddr_t)
  */
 
-#ifdef USG
-#ifndef __TYPES__
-#include <sys/types.h>			/* forgot to protect it... */
-#define __TYPES__
-#endif /* __TYPES__ */
-#else /* USG */
-# include <sys/types.h>
-#endif /* USG */
+# ifdef USG
+#  ifndef __TYPES__
+#   include <sys/types.h>			/* forgot to protect it... */
+#   define __TYPES__
+#  endif /* __TYPES__ */
+# else /* USG */
+#  include <sys/types.h>
+# endif /* USG */
 
-#if defined(__SCO__) || defined(__UNIXWARE__)
-#include <stdint.h>
-#endif
+# if defined(__SCO__) || defined(__UNIXWARE__)
+#  include <stdint.h>
+# endif
 
 
 /*
@@ -66,129 +66,129 @@ in this Software without prior written authorization from The Open Group.
  * which can be really inconvenient. :-(
  */
 
-#include <string.h>
-#if defined(__SCO__) || defined(__UNIXWARE__)
-#include <strings.h>
-#else
-#if (defined(sun) && defined(__SVR4))
-#include <strings.h>
-#endif
-#ifndef index
-#define index(s,c) (strchr((s),(c)))
-#endif
-#ifndef rindex
-#define rindex(s,c) (strrchr((s),(c)))
-#endif
-#endif
+# include <string.h>
+# if defined(__SCO__) || defined(__UNIXWARE__)
+#  include <strings.h>
+# else
+#  if (defined(sun) && defined(__SVR4))
+#   include <strings.h>
+#  endif
+#  ifndef index
+#   define index(s,c) (strchr((s),(c)))
+#  endif
+#  ifndef rindex
+#   define rindex(s,c) (strrchr((s),(c)))
+#  endif
+# endif
 
 /*
  * strerror()
  */
-#if (defined(sun) && !defined(SVR4)) && !defined(__GLIBC__)
-#ifndef strerror
+# if (defined(sun) && !defined(SVR4)) && !defined(__GLIBC__)
+#  ifndef strerror
 extern char *sys_errlist[];
 extern int sys_nerr;
-#define strerror(n) \
+#   define strerror(n) \
     (((n) >= 0 && (n) < sys_nerr) ? sys_errlist[n] : "unknown error")
-#endif
-#endif
+#  endif
+# endif
 
 /*
  * Get open(2) constants
  */
-#if defined(X_NOT_POSIX)
-#include <fcntl.h>
-#if defined(USL) || defined(__i386__) && (defined(SYSV) || defined(SVR4)) 
-#include <unistd.h>
-#endif
-#ifdef WIN32
-#include <X11/Xw32defs.h>
-#else
-#include <sys/file.h>
-#endif
-#else /* X_NOT_POSIX */
-#include <fcntl.h>
-#include <unistd.h>
-#endif /* X_NOT_POSIX else */
+# if defined(X_NOT_POSIX)
+#  include <fcntl.h>
+#  if defined(USL) || defined(__i386__) && (defined(SYSV) || defined(SVR4))
+#   include <unistd.h>
+#  endif
+#  ifdef WIN32
+#   include <X11/Xw32defs.h>
+#  else
+#   include <sys/file.h>
+#  endif
+# else /* X_NOT_POSIX */
+#  include <fcntl.h>
+#  include <unistd.h>
+# endif /* X_NOT_POSIX else */
 
 /*
  * Get struct timeval and struct tm
  */
 
-#if defined(SYSV) 
+# if defined(SYSV)
 
-#ifndef USL
-#include <sys/time.h>
-#endif
-#include <time.h>
-#if defined(USG) 
+#  ifndef USL
+#   include <sys/time.h>
+#  endif
+#  include <time.h>
+#  if defined(USG)
 struct timeval {
     long tv_sec;
     long tv_usec;
 };
-#ifndef USL_SHARELIB
+#   ifndef USL_SHARELIB
 struct timezone {
     int tz_minuteswest;
     int tz_dsttime;
 };
-#endif /* USL_SHARELIB */
-#endif /* USG */
+#   endif /* USL_SHARELIB */
+#  endif /* USG */
 
 
-#else /* not SYSV */
+# else /* not SYSV */
 
-#if defined(_POSIX_SOURCE) && defined(SVR4)
+#  if defined(_POSIX_SOURCE) && defined(SVR4)
 /* need to omit _POSIX_SOURCE in order to get what we want in SVR4 */
-#undef _POSIX_SOURCE
-#include <sys/time.h>
-#define _POSIX_SOURCE
-#elif defined(WIN32)
-#include <time.h>
-#if !defined(_WINSOCKAPI_) && !defined(_WILLWINSOCK_) && !defined(_TIMEVAL_DEFINED) && !defined(_STRUCT_TIMEVAL)
+#   undef _POSIX_SOURCE
+#   include <sys/time.h>
+#   define _POSIX_SOURCE
+#  elif defined(WIN32)
+#   include <time.h>
+#   if !defined(_WINSOCKAPI_) && !defined(_WILLWINSOCK_) && !defined(_TIMEVAL_DEFINED) && !defined(_STRUCT_TIMEVAL)
 struct timeval {
     long    tv_sec;         /* seconds */
     long    tv_usec;        /* and microseconds */
 };
-#define _TIMEVAL_DEFINED
-#endif
-#include <sys/timeb.h>
-#define gettimeofday(t) \
+#    define _TIMEVAL_DEFINED
+#   endif
+#   include <sys/timeb.h>
+#   define gettimeofday(t) \
 { \
     struct _timeb _gtodtmp; \
     _ftime (&_gtodtmp); \
     (t)->tv_sec = _gtodtmp.time; \
     (t)->tv_usec = _gtodtmp.millitm * 1000; \
 }
-#else
-#include <sys/time.h>
-#include <time.h>
-#endif /* defined(_POSIX_SOURCE) && defined(SVR4) */
+#  else
+#   include <sys/time.h>
+#   include <time.h>
+#  endif /* defined(_POSIX_SOURCE) && defined(SVR4) */
 
-#endif /* SYSV */
+# endif /* SYSV */
 
 /* define X_GETTIMEOFDAY macro, a portable gettimeofday() */
-#if defined(_XOPEN_XPG4) || defined(_XOPEN_UNIX) /* _XOPEN_UNIX is XPG4.2 */
-#define X_GETTIMEOFDAY(t) gettimeofday(t, (struct timezone*)0)
-#else
-#if defined(SVR4) || defined(WIN32)
-#define X_GETTIMEOFDAY(t) gettimeofday(t)
-#else
-#define X_GETTIMEOFDAY(t) gettimeofday(t, (struct timezone*)0)
-#endif
-#endif /* XPG4 else */
+# if defined(_XOPEN_XPG4) || defined(_XOPEN_UNIX) /* _XOPEN_UNIX is XPG4.2 */
+#  define X_GETTIMEOFDAY(t) gettimeofday(t, (struct timezone*)0)
+# else
+#  if defined(SVR4) || defined(WIN32)
+#   define X_GETTIMEOFDAY(t) gettimeofday(t)
+#  else
+#   define X_GETTIMEOFDAY(t) gettimeofday(t, (struct timezone*)0)
+#  endif
+# endif /* XPG4 else */
 
 
-#ifdef __GNU__
-#define PATH_MAX 4096
-#define MAXPATHLEN 4096
-#define OPEN_MAX 256 /* We define a reasonable limit.  */
-#endif
+# ifdef __GNU__
+#  define PATH_MAX 4096
+#  define MAXPATHLEN 4096
+#  define OPEN_MAX 256 /* We define a reasonable limit.  */
+# endif
 
 /* use POSIX name for signal */
-#if defined(X_NOT_POSIX) && defined(SYSV) && !defined(SIGCHLD) 
-#define SIGCHLD SIGCLD
-#endif
+# if defined(X_NOT_POSIX) && defined(SYSV) && !defined(SIGCHLD)
+#  define SIGCHLD SIGCLD
+# endif
 
-#include <X11/Xarch.h>
+# include <X11/Xarch.h>
 
 #endif /* _XOS_H_ */
