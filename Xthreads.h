@@ -77,7 +77,7 @@ extern xthread_t (*_x11_thr_self)();
 #   define xthread_yield() thr_yield()
 #   define xthread_exit(v) thr_exit(v)
 #   define xthread_key_create(kp,d) thr_keycreate(kp,d)
-#   ifdef sun
+#   ifdef __sun
 #    define xthread_key_delete(k) 0
 #   else
 #    define xthread_key_delete(k) thr_keydelete(k)

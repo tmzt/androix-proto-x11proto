@@ -43,7 +43,7 @@ in this Software without prior written authorization from The Open Group.
 # ifdef __i386__
 #  ifdef SYSV
 #   if !defined(__SCO__) && \
-	!defined(__UNIXWARE__) && !defined(sun)
+	!defined(__UNIXWARE__) && !defined(__sun)
 #    if !defined(_POSIX_SOURCE)
 #     define X_NOT_POSIX
 #    endif
@@ -51,7 +51,7 @@ in this Software without prior written authorization from The Open Group.
 #  endif
 # endif
 
-# ifdef sun
+# ifdef __sun
 /* Imake configs define SVR4 on Solaris, but cc & gcc only define __SVR4
  * This check allows non-Imake configured programs to build correctly.
  */

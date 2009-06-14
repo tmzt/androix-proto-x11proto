@@ -39,10 +39,8 @@
 
 # else
 
-#  ifdef SVR4
-#   if !defined(sun)
-#    include <sys/byteorder.h>
-#   endif
+#  if defined(SVR4) || defined(__SVR4)
+#   include <sys/byteorder.h>
 #  elif defined(CSRG_BASED)
 #   if defined(__NetBSD__) || defined(__OpenBSD__)
 #    include <sys/types.h>
@@ -75,7 +73,7 @@
 #   define LITTLE_ENDIAN 1234
 #   define BIG_ENDIAN    4321
 
-#   if defined(sun) && defined(SVR4)
+#   if defined(__sun) && defined(__SVR4)
 #    include <sys/isa_defs.h>
 #    ifdef _LITTLE_ENDIAN
 #     define BYTE_ORDER LITTLE_ENDIAN

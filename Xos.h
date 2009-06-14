@@ -67,29 +67,14 @@ in this Software without prior written authorization from The Open Group.
  */
 
 # include <string.h>
-# if defined(__SCO__) || defined(__UNIXWARE__)
+# if defined(__SCO__) || defined(__UNIXWARE__) || defined(__sun)
 #  include <strings.h>
 # else
-#  if (defined(sun) && defined(__SVR4))
-#   include <strings.h>
-#  endif
 #  ifndef index
 #   define index(s,c) (strchr((s),(c)))
 #  endif
 #  ifndef rindex
 #   define rindex(s,c) (strrchr((s),(c)))
-#  endif
-# endif
-
-/*
- * strerror()
- */
-# if (defined(sun) && !defined(SVR4)) && !defined(__GLIBC__)
-#  ifndef strerror
-extern char *sys_errlist[];
-extern int sys_nerr;
-#   define strerror(n) \
-    (((n) >= 0 && (n) < sys_nerr) ? sys_errlist[n] : "unknown error")
 #  endif
 # endif
 
@@ -170,7 +155,7 @@ struct timeval {
 # if defined(_XOPEN_XPG4) || defined(_XOPEN_UNIX) /* _XOPEN_UNIX is XPG4.2 */
 #  define X_GETTIMEOFDAY(t) gettimeofday(t, (struct timezone*)0)
 # else
-#  if defined(SVR4) || defined(WIN32)
+#  if defined(SVR4) || defined(__SVR4) || defined(WIN32)
 #   define X_GETTIMEOFDAY(t) gettimeofday(t)
 #  else
 #   define X_GETTIMEOFDAY(t) gettimeofday(t, (struct timezone*)0)

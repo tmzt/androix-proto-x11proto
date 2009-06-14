@@ -88,7 +88,7 @@ from The Open Group.
  * Test is easy, the new one is named __builtin_alloca and comes
  * from alloca.h which #defines alloca.
  */
-#      if defined(sun) || defined(alloca)
+#      if defined(__sun) || defined(alloca)
 /*
  * Some System V boxes extract alloca.o from /lib/libPW.a; if you
  * decide that you don't want to use alloca, you might want to fix it here.

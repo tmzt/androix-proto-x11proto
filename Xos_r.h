@@ -192,7 +192,7 @@ extern void XtProcessUnlock(
  * uses the older SVR4 thread-safe functions unless the POSIX ones
  * are specifically requested.  Fix the feature test macro.
  */
-#if defined(sun) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && \
+#if defined(__sun) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && \
 	(_POSIX_C_SOURCE - 0 < 199506L) && !defined(_POSIX_PTHREAD_SEMANTICS)
 # undef _POSIX_THREAD_SAFE_FUNCTIONS
 #endif
@@ -915,7 +915,7 @@ typedef struct tm _Xltimeparams;
 # define _XGmtime(t,p)		(gmtime_r((t),&(p)) ? NULL : &(p))
 # define _XLocaltime(t,p)	(localtime_r((t),&(p)) ? NULL : &(p))
 
-#elif !defined(_POSIX_THREAD_SAFE_FUNCTIONS) && defined(sun)
+#elif !defined(_POSIX_THREAD_SAFE_FUNCTIONS) && defined(__sun)
 /* Returns NULL on failure.  Solaris 2.5
  *
  * extern char *asctime_r(const struct tm *tm,char *buf, int buflen);
@@ -1038,7 +1038,7 @@ typedef struct {
    (_Xos_processUnlock), \
    (p).pgrp )
 
-#elif !defined(_POSIX_THREAD_SAFE_FUNCTIONS) && defined(sun) 
+#elif !defined(_POSIX_THREAD_SAFE_FUNCTIONS) && defined(__sun)
 /* Non-POSIX API.  Solaris.
  *
  * extern struct group *getgrgid_r(gid_t, struct group *, char *, int);
