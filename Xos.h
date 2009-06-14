@@ -81,18 +81,6 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #endif
 
-#else
-
-#ifdef SYSV
-#include <string.h>
-#define index strchr
-#define rindex strrchr
-#else
-#include <strings.h>
-#define strchr index
-#define strrchr rindex
-#endif
-
 /*
  * strerror()
  */
