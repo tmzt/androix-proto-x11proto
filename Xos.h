@@ -39,14 +39,7 @@ in this Software without prior written authorization from The Open Group.
  * Get major data types (esp. caddr_t)
  */
 
-# ifdef USG
-#  ifndef __TYPES__
-#   include <sys/types.h>			/* forgot to protect it... */
-#   define __TYPES__
-#  endif /* __TYPES__ */
-# else /* USG */
-#  include <sys/types.h>
-# endif /* USG */
+# include <sys/types.h>
 
 # if defined(__SCO__) || defined(__UNIXWARE__)
 #  include <stdint.h>
@@ -100,56 +93,32 @@ in this Software without prior written authorization from The Open Group.
  * Get struct timeval and struct tm
  */
 
-# if defined(SYSV)
-
-#  ifndef USL
-#   include <sys/time.h>
-#  endif
-#  include <time.h>
-#  if defined(USG)
-struct timeval {
-    long tv_sec;
-    long tv_usec;
-};
-#   ifndef USL_SHARELIB
-struct timezone {
-    int tz_minuteswest;
-    int tz_dsttime;
-};
-#   endif /* USL_SHARELIB */
-#  endif /* USG */
-
-
-# else /* not SYSV */
-
-#  if defined(_POSIX_SOURCE) && defined(SVR4)
+# if defined(_POSIX_SOURCE) && defined(SVR4)
 /* need to omit _POSIX_SOURCE in order to get what we want in SVR4 */
-#   undef _POSIX_SOURCE
-#   include <sys/time.h>
-#   define _POSIX_SOURCE
-#  elif defined(WIN32)
-#   include <time.h>
-#   if !defined(_WINSOCKAPI_) && !defined(_WILLWINSOCK_) && !defined(_TIMEVAL_DEFINED) && !defined(_STRUCT_TIMEVAL)
+#  undef _POSIX_SOURCE
+#  include <sys/time.h>
+#  define _POSIX_SOURCE
+# elif defined(WIN32)
+#  include <time.h>
+#  if !defined(_WINSOCKAPI_) && !defined(_WILLWINSOCK_) && !defined(_TIMEVAL_DEFINED) && !defined(_STRUCT_TIMEVAL)
 struct timeval {
     long    tv_sec;         /* seconds */
     long    tv_usec;        /* and microseconds */
 };
-#    define _TIMEVAL_DEFINED
-#   endif
-#   include <sys/timeb.h>
-#   define gettimeofday(t) \
+#   define _TIMEVAL_DEFINED
+#  endif
+#  include <sys/timeb.h>
+#  define gettimeofday(t) \
 { \
     struct _timeb _gtodtmp; \
     _ftime (&_gtodtmp); \
     (t)->tv_sec = _gtodtmp.time; \
     (t)->tv_usec = _gtodtmp.millitm * 1000; \
 }
-#  else
-#   include <sys/time.h>
-#   include <time.h>
-#  endif /* defined(_POSIX_SOURCE) && defined(SVR4) */
-
-# endif /* SYSV */
+# else
+#  include <sys/time.h>
+#  include <time.h>
+# endif /* defined(_POSIX_SOURCE) && defined(SVR4) */
 
 /* define X_GETTIMEOFDAY macro, a portable gettimeofday() */
 # if defined(_XOPEN_XPG4) || defined(_XOPEN_UNIX) /* _XOPEN_UNIX is XPG4.2 */
