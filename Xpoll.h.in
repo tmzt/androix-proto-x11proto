@@ -56,14 +56,7 @@ from The Open Group.
 
 #include <X11/Xos.h>
 
-/* Below is the monster branch from hell.  Basically, most systems will drop to
- * 'the branch below is the fallthrough for halfway modern systems', and include
- * <sys/select.h>, so we get the FD_* macros. */
-# if defined(SVR4)  && !defined(FD_SETSIZE)
-#  include <sys/select.h>
-# else /* not SVR4/CRAY/AIXv3 */
-#   include <sys/select.h>
-# endif
+#include <sys/select.h>  /* Get the FD_* macros. */
 
 #include <X11/Xmd.h>
 
