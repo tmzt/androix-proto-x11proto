@@ -34,6 +34,8 @@ pkgconfig_DATA = xproto.pc
 
 EXTRA_DIST = xproto.pc.in
 
+MAINTAINERCLEANFILES = ChangeLog INSTALL
+
 .PHONY: ChangeLog INSTALL
 
 INSTALL:
