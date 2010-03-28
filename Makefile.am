@@ -32,7 +32,6 @@ nodist_xproto_HEADERS = \
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = xproto.pc
 
-EXTRA_DIST = xproto.pc.in
 
 MAINTAINERCLEANFILES = ChangeLog INSTALL
 
